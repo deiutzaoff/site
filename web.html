@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WebNest Studio | Home</title>
+  <meta name="description" content="WebNest Studio creates modern, clean and strategic websites and visual identities for growing brands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#0d0d0d;
+      --panel2:#101010;
+      --text:#f5f5f5;
+      --muted:#a7a7a7;
+      --line:#1a1a1a;
+      --glow:rgba(255,255,255,.10);
+      --glow2:rgba(255,255,255,.06);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1200px;
+
+      /* NEW: accents (violet + blue) */
+      --violet:#7c3aed;
+      --blue:#3b82f6;
+      --accent: linear-gradient(90deg, var(--violet), var(--blue));
+      --accentSoft: rgba(124,58,237,.18);
+      --accentSoft2: rgba(59,130,246,.14);
+      --ring: rgba(124,58,237,.45);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(124,58,237,.10), transparent 60%),
+        radial-gradient(900px 500px at 80% 70%, rgba(59,130,246,.10), transparent 55%),
+        radial-gradient(900px 500px at 50% 30%, rgba(255,255,255,.04), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(92vw,var(--max)); margin-inline:auto; }
+
+    /* ===== premium background layers ===== */
+    .bg-grid{
+      position:fixed; inset:0;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity:.06;
+      mask-image: radial-gradient(circle at 50% 20%, black 0 50%, transparent 70%);
+      pointer-events:none;
+      z-index:-4;
+    }
+    .noise{
+      position:fixed; inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      opacity:.18;
+      mix-blend-mode:overlay;
+      pointer-events:none;
+      z-index:-3;
+    }
+    .orb{
+      position:fixed;
+      width:520px; height:520px;
+      border-radius:999px;
+      background:
+        radial-gradient(circle, rgba(124,58,237,.22), transparent 62%),
+        radial-gradient(circle at 70% 30%, rgba(59,130,246,.18), transparent 60%);
+      filter: blur(70px);
+      opacity:.55;
+      pointer-events:none;
+      z-index:-2;
+      transform: translate3d(0,0,0);
+    }
+    .orb.o1{ left:-140px; top:-140px; }
+    .orb.o2{
+      right:-180px; bottom:-180px;
+      opacity:.45; width:620px; height:620px;
+      background:
+        radial-gradient(circle, rgba(59,130,246,.22), transparent 62%),
+        radial-gradient(circle at 30% 70%, rgba(124,58,237,.18), transparent 60%);
+    }
+
+    /* spotlight follows cursor */
+    .spotlight{
+      position:fixed; inset:0;
+      background:
+        radial-gradient(420px 420px at var(--mx,50%) var(--my,20%),
+          rgba(124,58,237,.12),
+          rgba(59,130,246,.08) 35%,
+          transparent 65%);
+      pointer-events:none;
+      z-index:-1;
+      transition: background .12s linear;
+    }
+
+    /* ===== header / nav ===== */
+    .header{
+      position:sticky; top:0;
+      z-index:50;
+      padding:14px 0;
+      background: rgba(7,7,7,.45);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+    .brand-badge{
+      font-size:12px;
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      color:rgba(255,255,255,.84);
+      background: linear-gradient(90deg, rgba(124,58,237,.10), rgba(59,130,246,.10));
+    }
+    .brand-title{
+      font-size:16px;
+      background: var(--accent);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .nav-links{
+      display:flex; align-items:center; gap:22px;
+    }
+    .nav-links a{
+      font-size:13px;
+      color: rgba(255,255,255,.70);
+      padding:10px 10px;
+      border-radius:999px;
+      transition: .25s;
+      position:relative;
+    }
+    .nav-links a:hover{
+      color:#fff;
+      background: rgba(255,255,255,.06);
+    }
+    .nav-links a.active{
+      color:#0b0b0b;
+      background: var(--accent);
+    }
+
+    .nav-cta{
+      display:flex; align-items:center; gap:10px;
+    }
+    .btn{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.25s;
+      position:relative;
+      overflow:hidden;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.20); }
+    .btn.primary{
+      background: var(--accent);
+      color:#070707;
+      border-color: rgba(255,255,255,.0);
+      box-shadow: 0 10px 30px rgba(124,58,237,.18);
+    }
+    .btn.primary:hover{
+      filter: brightness(1.05);
+      box-shadow: 0 14px 40px rgba(59,130,246,.16);
+    }
+    .btn .shimmer{
+      position:absolute; inset:-60px -40px auto auto;
+      width:120px; height:200px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.60), transparent);
+      transform: rotate(18deg) translateX(-220px);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .btn.primary:hover .shimmer{
+      animation: shimmer .9s ease;
+    }
+    @keyframes shimmer{
+      to{ transform: rotate(18deg) translateX(220px); opacity:.2; }
+    }
+
+    .menu{
+      display:none;
+      width:44px; height:44px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      cursor:pointer;
+      place-items:center;
+    }
+    .menu span{
+      width:18px; height:2px; background:#fff; display:block; position:relative;
+    }
+    .menu span::before,.menu span::after{
+      content:"";
+      width:18px; height:2px; background:#fff; position:absolute; left:0;
+      transition:.25s;
+    }
+    .menu span::before{ top:-6px; }
+    .menu span::after{ top:6px; }
+    .menu.is-open span{ background:transparent; }
+    .menu.is-open span::before{ top:0; transform: rotate(45deg); }
+    .menu.is-open span::after{ top:0; transform: rotate(-45deg); }
+
+    .mobile{
+      display:none;
+      padding:14px 0 6px;
+    }
+    .mobile a{
+      display:block;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.06);
+      background: linear-gradient(90deg, rgba(124,58,237,.06), rgba(59,130,246,.06));
+      margin-bottom:10px;
+      color: rgba(255,255,255,.85);
+      transition:.25s;
+    }
+    .mobile a:hover{ background: rgba(255,255,255,.06); transform: translateY(-1px); }
+
+    /* ===== hero ===== */
+    .hero{
+      padding:72px 0 34px;
+      position:relative;
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+      min-height: calc(100vh - 74px);
+    }
+
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(90deg, rgba(124,58,237,.08), rgba(59,130,246,.07));
+      border-radius:999px;
+      font-size:12px;
+      color: rgba(255,255,255,.82);
+      width: fit-content;
+      margin-bottom:18px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(124,58,237,.10);
+    }
+
+    .title{
+      font-size: clamp(38px, 4.4vw, 64px);
+      line-height:1.05;
+      letter-spacing:-1.2px;
+      font-weight:900;
+    }
+    .title .grad{
+      background: var(--accent);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .subtitle{
+      margin-top:16px;
+      font-size:16px;
+      line-height:1.65;
+      color: rgba(255,255,255,.72);
+      max-width: 56ch;
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .pill{
+      margin-top:22px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .pill span{
+      font-size:12px;
+      color: rgba(255,255,255,.74);
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(90deg, rgba(124,58,237,.06), rgba(59,130,246,.05));
+    }
+
+    /* hero right: cinematic card */
+    .showcase{
+      position:relative;
+      padding:18px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+        radial-gradient(600px 400px at 20% 20%, rgba(124,58,237,.10), transparent 55%),
+        radial-gradient(600px 400px at 80% 70%, rgba(59,130,246,.08), transparent 55%);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      transform-style: preserve-3d;
+    }
+    .showcase::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(380px 280px at var(--sx,50%) var(--sy,20%), rgba(255,255,255,.18), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+      transition: .12s linear;
+    }
+    .showcase::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(124,58,237,.12), transparent 35%, rgba(59,130,246,.10));
+      opacity:.30;
+      pointer-events:none;
+    }
+    .shot-top{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:10px 10px 14px;
+    }
+    .mini{
+      font-size:12px;
+      color: rgba(255,255,255,.78);
+    }
+    .dots{
+      display:flex; gap:7px;
+    }
+    .dots i{
+      width:10px; height:10px; border-radius:999px;
+      display:inline-block;
+      background: rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .shot{
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(600px 300px at 30% 20%, rgba(124,58,237,.10), transparent 55%),
+        radial-gradient(600px 300px at 70% 80%, rgba(59,130,246,.08), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.10));
+      padding:18px;
+      overflow:hidden;
+      position:relative;
+      min-height: 360px;
+    }
+    .shot h3{
+      font-size:14px;
+      color: rgba(255,255,255,.70);
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+    .shot .big{
+      margin-top:10px;
+      font-size:22px;
+      font-weight:800;
+      line-height:1.2;
+    }
+    .shot .big .grad{
+      background: var(--accent);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .shot .line{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin:16px 0;
+    }
+    .shot .rows{
+      display:grid;
+      gap:10px;
+      margin-top:6px;
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .row b{ font-size:13px; font-weight:700; }
+    .row small{ color: rgba(255,255,255,.62); font-size:12px; }
+
+    .scan{
+      position:absolute;
+      inset:-30% -20%;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,.14), rgba(59,130,246,.10), transparent);
+      transform: rotate(18deg) translateX(-60%);
+      opacity:.7;
+      animation: scan 5.5s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes scan{
+      50%{ transform: rotate(18deg) translateX(20%); opacity:.35; }
+      100%{ transform: rotate(18deg) translateX(100%); opacity:.7; }
+    }
+
+    /* ===== sections ===== */
+    section{
+      padding: 86px 0;
+      position:relative;
+    }
+    .section-title{
+      font-size:26px;
+      letter-spacing:-.3px;
+      font-weight:850;
+    }
+    .section-sub{
+      margin-top:10px;
+      color: rgba(255,255,255,.70);
+      line-height:1.65;
+      max-width: 65ch;
+    }
+
+    /* stats strip */
+    .stats{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .stat{
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(90deg, rgba(124,58,237,.06), rgba(59,130,246,.05));
+      padding:18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .stat::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(260px 140px at 10% 0%, rgba(255,255,255,.12), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .stat b{
+      display:block;
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:-.6px;
+    }
+    .stat span{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      color: rgba(255,255,255,.72);
+      line-height:1.4;
+    }
+
+    /* cards */
+    .grid{
+      margin-top: 30px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 4;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        radial-gradient(520px 220px at 10% 0%, rgba(124,58,237,.08), transparent 60%),
+        radial-gradient(520px 220px at 90% 100%, rgba(59,130,246,.07), transparent 60%);
+      padding:22px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+      transform-style: preserve-3d;
+      transition: transform .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+    .card:hover{ border-color: rgba(255,255,255,.20); }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(340px 240px at var(--cx,50%) var(--cy,20%), rgba(255,255,255,.12), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+      transition: .12s linear;
+    }
+    .card h3{
+      font-size:14px;
+      color: rgba(255,255,255,.88);
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .card p{
+      margin-top:10px;
+      color: rgba(255,255,255,.68);
+      line-height:1.65;
+      font-size:13px;
+    }
+    .tagline{
+      margin-top:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .chip{
+      font-size:11px;
+      color: rgba(255,255,255,.72);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(90deg, rgba(124,58,237,.07), rgba(59,130,246,.05));
+    }
+
+    /* reveal on scroll */
+    .reveal{
+      opacity:0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.is-in{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* magnetic button */
+    .magnet{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(90deg, rgba(124,58,237,.08), rgba(59,130,246,.06));
+      cursor:pointer;
+      user-select:none;
+      transition: transform .15s ease, border-color .2s ease, filter .2s ease;
+      overflow:hidden;
+    }
+    .magnet strong{ font-size:13px; font-weight:800; }
+    .magnet small{ font-size:12px; color: rgba(255,255,255,.72); }
+    .magnet:hover{ border-color: rgba(255,255,255,.22); filter: brightness(1.05); }
+
+    /* ===== FORM INPUTS (FIX + consistent styling) ===== */
+    .input{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color:#fff;
+      outline:none;
+      font-size:13px;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+      appearance: none;
+    }
+    .input:focus{
+      border-color: rgba(124,58,237,.55);
+      box-shadow: 0 0 0 4px rgba(124,58,237,.18);
+      background: rgba(255,255,255,.04);
+    }
+    .input::placeholder{ color: rgba(255,255,255,.50); }
+
+    /* select arrow (custom) */
+    select.input{
+      padding-right: 40px;
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(255,255,255,.85) 50%),
+        linear-gradient(135deg, rgba(255,255,255,.85) 50%, transparent 50%),
+        linear-gradient(90deg, rgba(124,58,237,.10), rgba(59,130,246,.06));
+      background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 12px) 50%,
+        0 0;
+      background-size:6px 6px, 6px 6px, 100% 100%;
+      background-repeat:no-repeat;
+    }
+
+    /* ✅ FIX: dropdown options visible in dark theme (Chrome/Edge/Firefox) */
+    select.input option{
+      background-color: #0f0f12;
+      color: #ffffff;
+    }
+    select.input option:checked{
+      background-color: #1a1530;
+      color: #ffffff;
+    }
+    /* Some browsers support this for hover */
+    select.input option:hover{
+      background-color: #141826;
+      color: #ffffff;
+    }
+
+    /* footer */
+    footer{
+      padding:40px 0 70px;
+      border-top:1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.55);
+      font-size:13px;
+      text-align:center;
+    }
+
+    /* ===== PRICING ===== */
+
+.pricing-grid{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+}
+
+.price-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  padding:30px;
+  position:relative;
+  transition:.3s;
+}
+
+.price-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(124,58,237,.5);
+}
+
+.price-card h3{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,#7c3aed,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.price-card ul{
+  list-style:none;
+  padding:0;
+  margin-bottom:20px;
+}
+
+.price-card ul li{
+  margin-bottom:8px;
+  font-size:14px;
+  color:rgba(255,255,255,.75);
+}
+
+.price-desc{
+  font-size:13px;
+  color:rgba(255,255,255,.6);
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+.price-card.highlight{
+  border:1px solid rgba(124,58,237,.6);
+  box-shadow:0 10px 40px rgba(124,58,237,.15);
+}
+
+.badge{
+  position:absolute;
+  top:-10px;
+  right:20px;
+  background:linear-gradient(90deg,#7c3aed,#3b82f6);
+  padding:6px 12px;
+  font-size:11px;
+  font-weight:600;
+  border-radius:999px;
+  color:#000;
+}
+
+.pricing-grid.secondary{
+  margin-top:50px;
+}
+
+.price-card.small{
+  padding:25px;
+}
+
+    /* responsive */
+    @media (max-width: 980px){
+      .hero-inner{ grid-template-columns:1fr; padding-top: 16px; }
+      .showcase{ order: 2; }
+      .nav-links{ display:none; }
+      .menu{ display:grid; }
+      .mobile{ display:block; }
+      .grid .card{ grid-column: span 12; }
+      .stats{ grid-template-columns:1fr; }
+      section{ padding: 70px 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-grid"></div>
+  <div class="noise"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="spotlight" id="spotlight"></div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <span class="brand-title">WebNest Studio</span>
+        <span class="brand-badge">Dark • Violet/Blue</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home" class="active">Home</a>
+        <a href="#offer">What I Do</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="btn" id="btnScroll">Explore</button>
+        <a class="btn primary" href="#contact">
+          Book a Call
+          <span class="shimmer" aria-hidden="true"></span>
+        </a>
+        <button class="menu" id="menuBtn" aria-label="Open menu"><span></span></button>
+      </div>
+    </div>
+
+    <div class="container mobile" id="mobileMenu" style="display:none">
+      <a href="#home" data-close>Home</a>
+      <a href="#offer" data-close>What I Do</a>
+      <a href="#process" data-close>Process</a>
+      <a href="#contact" data-close>Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home" class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="kicker reveal">
+          <span class="dot"></span>
+          <span>Modern websites + graphic design — crafted with strategy</span>
+        </div>
+
+        <h1 class="title reveal">
+          Design that feels <span class="grad">premium</span><br/>
+          and works <span class="grad">strategically</span>.
+        </h1>
+
+        <p class="subtitle reveal">
+          WebNest Studio creates modern, clean and strategic websites and visual identities for growing brands.
+          I focus on simplicity, elegance and functionality — so your brand looks sharp and converts better.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="btn primary" href="#contact">
+            Start a Project
+            <span class="shimmer" aria-hidden="true"></span>
+          </a>
+
+          <div class="magnet" id="magnetBtn" role="button" tabindex="0" aria-label="Scroll to Offer">
+            <div>
+              <strong>See what I create</strong><br/>
+              <small>websites • logos • visuals</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="pill reveal">
+          <span>Mobile-first</span>
+          <span>Clean UI</span>
+          <span>Basic SEO</span>
+          <span>Fast delivery</span>
+        </div>
+
+        <div class="stats reveal" aria-label="Highlights">
+          <div class="stat">
+            <b>Dark Premium</b>
+            <span>High-contrast style with a modern violet/blue glow.</span>
+          </div>
+          <div class="stat">
+            <b>Strategic</b>
+            <span>Layouts built for clarity, trust and conversion.</span>
+          </div>
+          <div class="stat">
+            <b>Clean Visuals</b>
+            <span>Branding and graphics that look modern across platforms.</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="showcase" id="showcaseCard" aria-label="Cinematic preview card">
+        <div class="shot-top">
+          <div class="mini">WebNest Studio • preview</div>
+          <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="shot">
+          <div class="scan" aria-hidden="true"></div>
+          <h3>What you get</h3>
+          <div class="big">A website that looks <span class="grad">high-end</span> — and feels effortless.</div>
+          <div class="line"></div>
+
+          <div class="rows">
+            <div class="row">
+              <b>Modern UI</b>
+              <small>minimal • sleek • bold</small>
+            </div>
+            <div class="row">
+              <b>Mobile-ready</b>
+              <small>responsive for every screen</small>
+            </div>
+            <div class="row">
+              <b>Fast + Clean</b>
+              <small>performance-minded build</small>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- OFFER -->
+  <section id="offer">
+    <div class="container">
+      <h2 class="section-title reveal">What I Do</h2>
+      <p class="section-sub reveal">
+        I’m starting out — but I’m building with a professional mindset. I deliver clean design, clear structure,
+        and a premium look that helps new brands grow fast.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal tilt" data-tilt>
+          <h3>Landing Pages</h3>
+          <p>High-impact one-page websites designed to convert visitors into clients.</p>
+          <div class="tagline">
+            <span class="chip">modern layout</span>
+            <span class="chip">contact form</span>
+            <span class="chip">basic SEO</span>
+          </div>
+        </article>
+
+        <article class="card reveal tilt" data-tilt>
+          <h3>Multi-page Websites</h3>
+          <p>3–5 page sites that communicate trust: Home, About, Services, Contact — structured cleanly.</p>
+          <div class="tagline">
+            <span class="chip">responsive</span>
+            <span class="chip">clean sections</span>
+            <span class="chip">fast UX</span>
+          </div>
+        </article>
+
+        <article class="card reveal tilt" data-tilt>
+          <h3>Logo & Visual Identity</h3>
+          <p>Minimal logos + small brand kits for a consistent look across social and web.</p>
+          <div class="tagline">
+            <span class="chip">logo concepts</span>
+            <span class="chip">brand palette</span>
+            <span class="chip">social preview</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title reveal">My Simple Process</h2>
+      <p class="section-sub reveal">
+        No stress, no confusion. A clear workflow that keeps everything smooth — especially if it’s your first time working with a designer.
+      </p>
+
+      <div class="grid">
+        <article class="card reveal tilt" data-tilt>
+          <h3>1) Quick discovery</h3>
+          <p>We clarify your goal, style direction, and what you need (website, logo, or both).</p>
+          <div class="tagline">
+            <span class="chip">direction</span>
+            <span class="chip">scope</span>
+            <span class="chip">timeline</span>
+          </div>
+        </article>
+
+        <article class="card reveal tilt" data-tilt>
+          <h3>2) Design + build</h3>
+          <p>I design the structure, then build it cleanly. You get 1–2 revisions included.</p>
+          <div class="tagline">
+            <span class="chip">clean UI</span>
+            <span class="chip">responsive</span>
+            <span class="chip">revisions</span>
+          </div>
+        </article>
+
+        <article class="card reveal tilt" data-tilt>
+          <h3>3) Launch-ready</h3>
+          <p>You receive files, guidance, and a final polish so your brand looks premium online.</p>
+          <div class="tagline">
+            <span class="chip">final polish</span>
+            <span class="chip">handover</span>
+            <span class="chip">support</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="hero-actions reveal" style="margin-top:22px;">
+        <a class="btn primary" href="#contact">
+          Get a Quote
+          <span class="shimmer" aria-hidden="true"></span>
+        </a>
+        <button class="btn" id="toTop">Back to top</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <h2 class="section-title reveal">Pricing</h2>
+    <p class="section-sub reveal">
+      Clear pricing for growing brands. Final quote depends on scope,
+      number of pages and content readiness.
+    </p>
+
+    <div class="pricing-grid">
+
+      <!-- LANDING PAGE -->
+      <div class="price-card reveal">
+        <h3>Landing Page</h3>
+        <div class="price">Starting at $120</div>
+
+        <ul>
+          <li>✔ 1 modern scroll-based page</li>
+          <li>✔ Mobile responsive design</li>
+          <li>✔ Contact form integration</li>
+          <li>✔ Basic SEO setup</li>
+          <li>✔ Clean and structured layout</li>
+          <li>✔ 1–2 revisions included</li>
+        </ul>
+
+        <p class="price-desc">
+          Perfect for personal brands, freelancers or small businesses
+          that need a strong online presence fast.
+        </p>
+
+        <a href="#contact" class="btn primary">Get Started</a>
+      </div>
+
+      <!-- WEBSITE -->
+      <div class="price-card highlight reveal">
+        <div class="badge">Most Popular</div>
+        <h3>Website (3–5 Pages)</h3>
+        <div class="price">Starting at $280</div>
+
+        <ul>
+          <li>✔ Home, About, Services, Contact</li>
+          <li>✔ Additional page if needed</li>
+          <li>✔ Fully responsive</li>
+          <li>✔ Clean UI structure</li>
+          <li>✔ Basic SEO optimization</li>
+          <li>✔ 1–2 revisions included</li>
+        </ul>
+
+        <p class="price-desc">
+          Ideal for businesses that want to look professional,
+          trustworthy and organized online.
+        </p>
+
+        <a href="#contact" class="btn primary">Get Quote</a>
+      </div>
+
+      <!-- E-COMMERCE -->
+      <div class="price-card reveal">
+        <h3>E-commerce Website</h3>
+        <div class="price">Starting at $650</div>
+
+        <ul>
+          <li>✔ Online shop setup</li>
+          <li>✔ Product pages (up to 10 products)</li>
+          <li>✔ Payment integration</li>
+          <li>✔ Mobile optimization</li>
+          <li>✔ Basic store structure</li>
+          <li>✔ 1–2 revisions included</li>
+        </ul>
+
+        <p class="price-desc">
+          For brands ready to sell products online with
+          a clean and modern store experience.
+        </p>
+
+        <a href="#contact" class="btn primary">Start Selling</a>
+      </div>
+
+    </div>
+
+    <!-- GRAPHIC DESIGN -->
+    <div class="pricing-grid secondary">
+
+      <div class="price-card small reveal">
+        <h3>Logo Design</h3>
+        <div class="price">$50 – $100</div>
+        <ul>
+          <li>✔ 2–3 logo concepts</li>
+          <li>✔ 2 revisions</li>
+          <li>✔ PNG + JPG files</li>
+        </ul>
+      </div>
+
+      <div class="price-card small reveal">
+        <h3>Logo + Mini Brand Kit</h3>
+        <div class="price">$130 – $260</div>
+        <ul>
+          <li>✔ Logo design</li>
+          <li>✔ Color palette</li>
+          <li>✔ Font pairing</li>
+          <li>✔ Social media preview</li>
+        </ul>
+      </div>
+
+      <div class="price-card small reveal">
+        <h3>Social Media (5 Posts)</h3>
+        <div class="price">$40 – $85</div>
+        <ul>
+          <li>✔ Custom design posts</li>
+          <li>✔ Matching brand style</li>
+          <li>✔ Ready to upload files</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title reveal">Let’s build something clean</h2>
+      <p class="section-sub reveal">
+        Tell me what you need and I’ll reply with a simple plan + price range.
+        (Tip: I can offer a discount for the first 3 projects.)
+      </p>
+
+      <div class="grid">
+        <article class="card reveal" style="grid-column: span 7;">
+          <h3>Send a message</h3>
+          <p>Fill this quick form. It’s a demo (no backend), but you’ll see a premium interaction.</p>
+
+          <form id="contactForm" style="margin-top:14px;">
+            <div style="display:grid; gap:10px;">
+              <input class="input" name="name" placeholder="Your name" required />
+              <input class="input" name="email" placeholder="Email address" type="email" required />
+
+              <select class="input" name="service" required>
+                <option value="" disabled selected>What do you need?</option>
+                <option>Landing Page</option>
+                <option>Website (3–5 pages)</option>
+                <option>E-commerce</option>
+                <option>Logo Design</option>
+                <option>Logo + Mini Brand Kit</option>
+                <option>Social Media Designs</option>
+              </select>
+
+              <textarea class="input" name="message" rows="5" placeholder="Describe your project..." required></textarea>
+
+              <button class="btn primary" type="submit">
+                Send Message
+                <span class="shimmer" aria-hidden="true"></span>
+              </button>
+
+              <small style="color:rgba(255,255,255,.55); line-height:1.5;">
+                You can later connect this to a real backend or email service. For now it shows the UI & flow.
+              </small>
+            </div>
+          </form>
+        </article>
+
+        <article class="card reveal" style="grid-column: span 5;">
+          <h3>Quick notes</h3>
+          <p>Professional terms that keep the project smooth and fair for both sides.</p>
+
+          <div class="tagline" style="margin-top:14px;">
+            <span class="chip">50% deposit</span>
+            <span class="chip">1–2 revisions included</span>
+            <span class="chip">extra changes = extra cost</span>
+            <span class="chip">discount for first 3 clients</span>
+          </div>
+
+          <div style="margin-top:16px; height:1px; background:rgba(255,255,255,.08);"></div>
+
+          <div style="margin-top:16px;">
+            <div class="row" style="margin-bottom:10px;">
+              <b>Response time</b>
+              <small>within 24–48h</small>
+            </div>
+            <div class="row">
+              <b>Timezone</b>
+              <small>Europe / Chișinău</small>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top:16px;">
+            <a class="btn" href="#offer">View Services</a>
+            <a class="btn primary" href="#home">
+              Home
+              <span class="shimmer" aria-hidden="true"></span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 WebNest Studio — Modern web design & graphic design.
+  </footer>
+
+  <script>
+    // ===== spotlight follows mouse (premium) =====
+    const spotlight = document.getElementById('spotlight');
+    const setSpot = (x, y) => {
+      spotlight.style.setProperty('--mx', x + 'px');
+      spotlight.style.setProperty('--my', y + 'px');
+    };
+    window.addEventListener('pointermove', (e) => setSpot(e.clientX, e.clientY));
+    setSpot(window.innerWidth * 0.5, window.innerHeight * 0.2);
+
+    // ===== orb parallax =====
+    const o1 = document.querySelector('.orb.o1');
+    const o2 = document.querySelector('.orb.o2');
+    window.addEventListener('pointermove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5);
+      const y = (e.clientY / window.innerHeight - 0.5);
+      o1.style.transform = `translate3d(${x * 26}px, ${y * 18}px, 0)`;
+      o2.style.transform = `translate3d(${x * -22}px, ${y * -16}px, 0)`;
+    });
+
+    // ===== mobile menu =====
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let open = false;
+    menuBtn.addEventListener('click', () => {
+      open = !open;
+      menuBtn.classList.toggle('is-open', open);
+      mobileMenu.style.display = open ? 'block' : 'none';
+    });
+    mobileMenu.querySelectorAll('[data-close]').forEach(a => {
+      a.addEventListener('click', () => {
+        open = false;
+        menuBtn.classList.remove('is-open');
+        mobileMenu.style.display = 'none';
+      });
+    });
+
+    // ===== smooth scroll buttons =====
+    document.getElementById('btnScroll').addEventListener('click', () => {
+      document.getElementById('offer').scrollIntoView({behavior:'smooth'});
+    });
+    document.getElementById('toTop').addEventListener('click', () => {
+      document.getElementById('home').scrollIntoView({behavior:'smooth'});
+    });
+
+    // ===== nav active section indicator =====
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = ['home','offer','process','contact'].map(id => document.getElementById(id));
+    const setActive = (id) => {
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    };
+    const navObs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if(en.isIntersecting){
+          setActive(en.target.id);
+        }
+      });
+    }, { threshold: 0.55 });
+    sections.forEach(s => navObs.observe(s));
+
+    // ===== reveal on scroll =====
+    const reveals = document.querySelectorAll('.reveal');
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if(en.isIntersecting){
+          en.target.classList.add('is-in');
+          revObs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.16 });
+    reveals.forEach(el => revObs.observe(el));
+
+    // ===== 3D tilt cards + spotlight inside cards =====
+    const tiltEls = document.querySelectorAll('[data-tilt]');
+    tiltEls.forEach(el => {
+      el.addEventListener('pointermove', (e) => {
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        el.style.setProperty('--cx', (px * 100) + '%');
+        el.style.setProperty('--cy', (py * 100) + '%');
+
+        const rotY = (px - 0.5) * 10;
+        const rotX = (0.5 - py) * 10;
+        el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-2px)`;
+      });
+      el.addEventListener('pointerleave', () => {
+        el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    });
+
+    // ===== showcase card interactive highlight =====
+    const showcase = document.getElementById('showcaseCard');
+    showcase.addEventListener('pointermove', (e) => {
+      const r = showcase.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      showcase.style.setProperty('--sx', (px * 100) + '%');
+      showcase.style.setProperty('--sy', (py * 100) + '%');
+
+      const rotY = (px - 0.5) * 8;
+      const rotX = (0.5 - py) * 8;
+      showcase.style.transform = `perspective(1100px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+    });
+    showcase.addEventListener('pointerleave', () => {
+      showcase.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg)';
+    });
+
+    // ===== magnetic button =====
+    const magnet = document.getElementById('magnetBtn');
+    const moveMagnet = (e) => {
+      const r = magnet.getBoundingClientRect();
+      const x = e.clientX - (r.left + r.width/2);
+      const y = e.clientY - (r.top + r.height/2);
+      magnet.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px)`;
+    };
+    magnet.addEventListener('pointermove', moveMagnet);
+    magnet.addEventListener('pointerleave', () => magnet.style.transform = 'translate(0,0)');
+    const goOffer = () => document.getElementById('offer').scrollIntoView({behavior:'smooth'});
+    magnet.addEventListener('click', goOffer);
+    magnet.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') goOffer(); });
+
+    // ===== contact form (demo) =====
+    const form = document.getElementById('contactForm');
+
+    // create toast
+    const toast = document.createElement('div');
+    toast.style.position = 'fixed';
+    toast.style.left = '50%';
+    toast.style.bottom = '24px';
+    toast.style.transform = 'translateX(-50%) translateY(14px)';
+    toast.style.padding = '12px 14px';
+    toast.style.borderRadius = '14px';
+    toast.style.border = '1px solid rgba(255,255,255,.14)';
+    toast.style.background = 'rgba(20,20,20,.82)';
+    toast.style.backdropFilter = 'blur(10px)';
+    toast.style.color = 'rgba(255,255,255,.86)';
+    toast.style.fontSize = '13px';
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity .25s ease, transform .25s ease';
+    toast.style.zIndex = '999';
+    document.body.appendChild(toast);
+
+    let toastTimer = null;
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(-50%) translateY(0)';
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(-50%) translateY(14px)';
+      }, 2400);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = (data.get('name')||'').toString().trim();
+      const email = (data.get('email')||'').toString().trim();
+      const service = (data.get('service')||'').toString().trim();
+      const message = (data.get('message')||'').toString().trim();
+
+      if(!name || !email || !service || !message){
+        showToast('Please complete all fields.');
+        return;
+      }
+
+      showToast('Message ready ✔ (connect to email/backend next)');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
