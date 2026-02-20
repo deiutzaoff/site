@@ -1072,12 +1072,12 @@
           <h3>Send a message</h3>
           <p>Fill this quick form. It’s a demo (no backend), but you’ll see a premium interaction.</p>
 
-          <form id="contactForm" style="margin-top:14px;">
+          <form id="contactForm" style="margin-top:14px;" onsubmit="sendMail(event)">
             <div style="display:grid; gap:10px;">
-              <input class="input" name="name" placeholder="Your name" required />
-              <input class="input" name="email" placeholder="Email address" type="email" required />
+              <input class="input" id="name" name="name" placeholder="Your name" required />
+              <input class="input" id="email" name="email" placeholder="Email address" type="email" required />
 
-              <select class="input" name="service" required>
+              <select class="input" id="service" name="service" required>
                 <option value="" disabled selected>What do you need?</option>
                 <option>Landing Page</option>
                 <option>Website (3–5 pages)</option>
@@ -1087,7 +1087,7 @@
                 <option>Social Media Designs</option>
               </select>
 
-              <textarea class="input" name="message" rows="5" placeholder="Describe your project..." required></textarea>
+              <textarea class="input" id="message" name="message" rows="5" placeholder="Describe your project..." required></textarea>
 
               <button class="btn primary" type="submit">
                 Send Message
@@ -1295,23 +1295,53 @@
         toast.style.transform = 'translateX(-50%) translateY(14px)';
       }, 2400);
     }
+</script>
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = (data.get('name')||'').toString().trim();
-      const email = (data.get('email')||'').toString().trim();
-      const service = (data.get('service')||'').toString().trim();
-      const message = (data.get('message')||'').toString().trim();
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-      if(!name || !email || !service || !message){
-        showToast('Please complete all fields.');
-        return;
-      }
+<script>
+(function(){
+emailjs.init("v2XJH_A7t3YXAfI0g");
+})();
 
-      showToast('Message ready ✔ (connect to email/backend next)');
-      form.reset();
-    });
-  </script>
+function sendMail(e) {
+  e.preventDefault();
+
+  const nameEl = document.getElementById("name");
+  const emailEl = document.getElementById("email");
+  const serviceEl = document.getElementById("service");
+  const messageEl = document.getElementById("message");
+
+  const name = (nameEl?.value || "").trim();
+  const email = (emailEl?.value || "").trim();
+  const service = (serviceEl?.value || "").trim();
+  const message = (messageEl?.value || "").trim();
+
+  // Basic validation
+  if (!name || !email || !service || !message) {
+    if (typeof showToast === "function") showToast("Please complete all fields.");
+    else alert("Please complete all fields.");
+    return;
+  }
+
+  emailjs.send("service_ufmotip", "template_ddkw387", {
+    name,
+    email,
+    service,
+    message,
+  })
+  .then(() => {
+    if (typeof showToast === "function") showToast("Mesaj trimis cu succes!");
+    else alert("Mesaj trimis cu succes!");
+    document.getElementById("contactForm")?.reset();
+  })
+  .catch((err) => {
+    console.log("EmailJS error:", err);
+    if (typeof showToast === "function") showToast("Eroare la trimitere. Încearcă din nou.");
+    else alert("Eroare la trimitere. Încearcă din nou.");
+  });
+}
+</script>
+
 </body>
 </html>
