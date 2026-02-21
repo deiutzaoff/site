@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BioBalance — Digestie & Echilibru Natural</title>
+  <meta name="description" content="BioBalance — produse naturale pentru echilibru digestiv: Ceai de hrișcă amară și capsule Jen Ton. Contactează-ne pentru recomandări." />
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #0b1220;
+      --muted: #4b5563;
+      --border: rgba(11,18,32,.10);
+
+      --green-800:#0b5a33;
+      --green-700:#0f6a3b;
+      --green-600:#1b8a4a;
+      --green-500:#2dbb64;
+
+      --shadow: 0 18px 55px rgba(2, 6, 23, .10);
+      --shadow-soft: 0 10px 26px rgba(2, 6, 23, .08);
+      --glow: 0 0 0 6px rgba(45,187,100,.14);
+
+      --radius: 18px;
+      --radius2: 22px;
+
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(980px 560px at 10% -5%, rgba(45,187,100,.22), transparent 62%),
+        radial-gradient(820px 520px at 100% 0%, rgba(15,106,59,.14), transparent 55%),
+        radial-gradient(900px 600px at 70% 105%, rgba(27,138,74,.10), transparent 60%),
+        var(--bg);
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    .fx{
+      position:fixed; inset:0; pointer-events:none; z-index:-1;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.65), transparent 55%),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,.45), transparent 55%);
+      opacity:.35;
+      animation: floaty 12s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%,100%{ transform: translate3d(0,0,0); }
+      50%{ transform: translate3d(0,-10px,0); }
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,.70);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      background:
+        radial-gradient(20px 20px at 30% 30%, rgba(255,255,255,.90), rgba(255,255,255,0) 60%),
+        linear-gradient(135deg, var(--green-500), var(--green-800));
+      box-shadow: 0 14px 22px rgba(45,187,100,.20);
+      display:grid; place-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-40px;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+      transform: translateX(-40%);
+      animation: shine 3.8s ease-in-out infinite;
+      opacity:.7;
+    }
+    @keyframes shine{
+      0%,55%{ transform: translateX(-55%); opacity:.0; }
+      70%{ opacity:.65; }
+      100%{ transform: translateX(55%); opacity:0; }
+    }
+
+    .navlinks{
+      display:flex; gap:18px; align-items:center;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .navlinks a{
+      padding:10px 10px; border-radius:14px;
+      transition: background .15s ease, color .15s ease, transform .15s ease;
+    }
+    .navlinks a:hover{
+      background: rgba(45,187,100,.10);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .navcta{ display:flex; gap:10px; align-items:center; }
+
+    .btn{
+      appearance:none; border:0;
+      padding:10px 14px;
+      border-radius: 14px;
+      font-weight:800;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-primary{
+      background: linear-gradient(135deg, var(--green-600), var(--green-800));
+      color:white;
+      box-shadow: 0 14px 30px rgba(27,138,74,.22);
+      position:relative;
+      overflow:hidden;
+    }
+    .btn-primary:before{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.30), transparent 55%);
+      opacity:.65;
+      transform: translate3d(-18px,-12px,0);
+      pointer-events:none;
+    }
+    .btn-primary:hover{ box-shadow: 0 18px 44px rgba(27,138,74,.28); }
+
+    .btn-ghost{
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-ghost:hover{
+      background: rgba(45,187,100,.08);
+      border-color: rgba(45,187,100,.25);
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    }
+
+    .hamburger{
+      display:none;
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      transition: background .15s ease, transform .15s ease;
+    }
+    .hamburger:hover{ background: rgba(45,187,100,.08); }
+    .hamburger:active{ transform: translateY(1px); }
+
+    .mobileMenu{ display:none; padding: 0 0 14px; }
+    .mobileMenu a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.75);
+      color: var(--muted);
+      font-weight:800;
+      margin-top: 10px;
+      transition: background .15s ease, transform .15s ease, border-color .15s ease;
+    }
+    .mobileMenu a:hover{
+      background: rgba(45,187,100,.08);
+      border-color: rgba(45,187,100,.25);
+      transform: translateY(-1px);
+      color: var(--text);
+    }
+
+    .hero{ padding: 54px 0 26px; }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius: 999px;
+      background: rgba(45,187,100,.12);
+      border: 1px solid rgba(45,187,100,.22);
+      color: var(--green-800);
+      font-weight:900;
+      letter-spacing:.15px;
+      width: fit-content;
+    }
+    .h1{
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1.06;
+      margin: 14px 0 12px;
+      letter-spacing: -0.9px;
+    }
+    .lead{
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 60ch;
+    }
+    .heroActions{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 16px; }
+
+    .trustRow{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 20px;
+      color: var(--muted);
+      font-weight:700;
+      font-size: 13px;
+    }
+    .trustRow span{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+    }
+
+    .heroCard{
+      background: rgba(255,255,255,.74);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-80px -60px auto auto;
+      width:320px; height:320px;
+      background: radial-gradient(circle at 30% 30%, rgba(45,187,100,.22), transparent 65%);
+      transform: rotate(22deg);
+      pointer-events:none;
+    }
+    .miniTitle{ font-weight:900; letter-spacing:.2px; margin: 0 0 6px; }
+    .miniText{ margin:0; color:var(--muted); font-size:14px; }
+
+    .quickList{
+      margin: 14px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .quickItem{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.76);
+      box-shadow: var(--shadow-soft);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .quickItem:hover{
+      transform: translateY(-2px);
+      border-color: rgba(45,187,100,.25);
+      box-shadow: 0 14px 34px rgba(2,6,23,.09);
+    }
+    .badgeIcon{
+      width:36px; height:36px;
+      border-radius: 14px;
+      background: rgba(45,187,100,.12);
+      border: 1px solid rgba(45,187,100,.24);
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+      color: var(--green-800);
+    }
+
+    section{ padding: 28px 0; }
+    .sectionHead{
+      display:flex; justify-content:space-between; align-items:flex-end; gap:12px;
+      margin-bottom: 14px;
+    }
+    .sectionHead h2{ margin:0; font-size: 22px; letter-spacing:-.2px; }
+    .sectionHead p{ margin:0; color: var(--muted); max-width: 62ch; font-size:14px; }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      background: rgba(255,255,255,.74);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+    }
+    .card h3{ margin: 10px 0 6px; font-size: 16px; }
+    .card p{ margin: 0; color: var(--muted); font-size: 14px; }
+
+    .products{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .productCard{
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+      min-height: 280px;
+      display:flex;
+      flex-direction:column;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+    .productCard:hover{
+      transform: translateY(-3px);
+      border-color: rgba(45,187,100,.25);
+      box-shadow: 0 18px 46px rgba(2,6,23,.11);
+    }
+    .productCard:before{
+      content:"";
+      position:absolute; inset:auto -120px -140px auto;
+      width:360px; height:360px;
+      background: radial-gradient(circle at 30% 30%, rgba(27,138,74,.16), transparent 70%);
+      pointer-events:none;
+    }
+
+    .prodLayout{
+      display:grid;
+      grid-template-columns: 1fr 220px;
+      gap: 16px;
+      height: 100%;
+    }
+    .prodContent{ position:relative; z-index:1; }
+    .prodVisual{
+      position:relative;
+      border-radius: 18px;
+      border: 1px solid rgba(45,187,100,.18);
+      overflow:hidden;
+      z-index:1;
+      background: rgba(255,255,255,.5);
+    }
+
+    .prodStamp{
+      position:absolute;
+      left: 14px; bottom: 14px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      border:1px solid rgba(11,18,32,.10);
+      font-weight:900;
+      color: var(--green-800);
+      box-shadow: 0 12px 22px rgba(2,6,23,.08);
+      z-index: 2;
+    }
+
+    .tag{
+      display:inline-flex;
+      font-weight:900;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(45,187,100,.12);
+      border: 1px solid rgba(45,187,100,.22);
+      color: var(--green-800);
+      width: fit-content;
+    }
+
+    .productCard h3{ margin: 10px 0 6px; font-size: 18px; letter-spacing:-.2px; }
+    .prodDesc{ margin: 0 0 12px; color: var(--muted); font-size: 14px; max-width: 70ch; }
+    .bullets{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      display:grid;
+      gap: 6px;
+    }
+    .prodActions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
+
+    .prodImg{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+      transition: transform .25s ease;
+    }
+    .productCard:hover .prodImg{ transform: scale(1.06); }
+
+    .quotes{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    blockquote{
+      margin:0;
+      padding: 16px;
+      border-radius: var(--radius2);
+      background: rgba(255,255,255,.74);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      color: var(--muted);
+      font-size: 14px;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    blockquote:hover{
+      transform: translateY(-2px);
+      border-color: rgba(45,187,100,.25);
+      box-shadow: 0 16px 40px rgba(2,6,23,.10);
+    }
+    blockquote strong{ color: var(--text); }
+
+    .faq{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    details{
+      background: rgba(255,255,255,.74);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 14px 14px;
+      box-shadow: var(--shadow-soft);
+      transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    details:hover{
+      border-color: rgba(45,187,100,.25);
+      box-shadow: 0 16px 40px rgba(2,6,23,.10);
+      transform: translateY(-1px);
+    }
+    summary{
+      cursor:pointer;
+      font-weight:900;
+      color: var(--text);
+      list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .faq p{ margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+
+    .contactWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:stretch;
+    }
+    .contactCard{ padding: 18px; }
+
+    .contactList{
+      margin: 12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+      color: var(--muted);
+      font-weight:750;
+      font-size: 14px;
+    }
+    .contactList li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .contactList li:hover{
+      transform: translateY(-2px);
+      border-color: rgba(45,187,100,.25);
+      box-shadow: 0 14px 34px rgba(2,6,23,.09);
+    }
+
+    form{ display:grid; gap:10px; margin-top: 12px; }
+    label{ font-size: 13px; color: var(--muted); font-weight:800; }
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.86);
+      outline:none;
+      font: inherit;
+      transition: box-shadow .15s ease, border-color .15s ease;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(45,187,100,.45);
+      box-shadow: var(--glow);
+    }
+    textarea{ min-height: 112px; resize: vertical; }
+
+    .fineprint{ margin: 10px 0 0; color: var(--muted); font-size: 12px; }
+
+    footer{
+      padding: 26px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 18px;
+    }
+    .foot{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:center;
+    }
+
+    @media (max-width: 980px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .products{ grid-template-columns: 1fr; }
+      .quotes{ grid-template-columns: 1fr; }
+      .faq{ grid-template-columns: 1fr; }
+      .contactWrap{ grid-template-columns: 1fr; }
+      .navlinks{ display:none; }
+      .hamburger{ display:inline-grid; place-items:center; }
+      .mobileMenu{ display:none; }
+      .prodLayout{ grid-template-columns: 1fr 170px; }
+    }
+
+    @media (max-width: 520px){
+      .prodLayout{ grid-template-columns: 1fr; }
+      .prodVisual{ min-height: 160px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="fx" aria-hidden="true"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="BioBalance Home">
+          <span class="logo" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10Z" stroke="white" stroke-width="2" opacity=".95"/>
+              <path d="M9 12c2-1 3-3 3-6 2 2 3 4 3 6 0 2-1 4-3 4s-3-2-3-4Z" fill="white" opacity=".95"/>
+            </svg>
+          </span>
+          <span>BioBalance</span>
+        </a>
+
+        <nav class="navlinks" aria-label="Navigație principală">
+          <a href="#beneficii">Beneficii</a>
+          <a href="#produse">Produse</a>
+          <a href="#faq">Întrebări</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="navcta">
+          <button class="btn btn-ghost" id="btnScrollProducts" type="button">Vezi produse</button>
+          <a class="btn btn-primary" href="#contact">Cere recomandare</a>
+
+          <button class="hamburger" id="hamburger" aria-label="Deschide meniul" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobileMenu" id="mobileMenu" aria-label="Meniu mobil">
+        <a href="#beneficii">Beneficii</a>
+        <a href="#produse">Produse</a>
+        <a href="#faq">Întrebări</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="container">
+      <section class="hero">
+        <div class="heroGrid">
+          <div>
+            <div class="pill">
+              <span aria-hidden="true">🌿</span>
+              <span>Rutina ta simplă pentru echilibru digestiv</span>
+            </div>
+
+            <h1 class="h1">BioBalance — suport natural pentru digestie, zi de zi.</h1>
+            <p class="lead">
+              Două produse, o abordare minimalistă: un ceai ușor de integrat în rutină și capsule pentru confort intestinal.
+              Informații clare + contact rapid pentru recomandări.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn btn-primary" href="#contact">
+                <span>Contact rapid</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <button class="btn btn-ghost" type="button" id="btnScrollBenefits">
+                Află cum te ajută
+              </button>
+            </div>
+
+            <div class="trustRow" role="list">
+              <span role="listitem">✅ Consultare / recomandare</span>
+              <span role="listitem">✅ Livrare & detalii la cerere</span>
+              <span role="listitem">✅ Design minimalist</span>
+            </div>
+          </div>
+
+          <aside class="heroCard" aria-label="Rezumat rapid">
+            <p class="miniTitle">Ce găsești aici</p>
+
+            <ul class="quickList">
+              <li class="quickItem">
+                <span class="badgeIcon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Rutina de dimineață</strong>
+                  <div class="miniText">Ceaiul de hrișcă amară — simplu, fără zahăr.</div>
+                </div>
+              </li>
+
+              <li class="quickItem">
+                <span class="badgeIcon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 12h10M12 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Confort intestinal</strong>
+                  <div class="miniText">Capsule Jen Ton — pentru tranzit și susținere.</div>
+                </div>
+              </li>
+
+              <li class="quickItem">
+                <span class="badgeIcon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 7 10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <div>
+                  <strong>Ghidare</strong>
+                  <div class="miniText">Îți răspundem la întrebări înainte de comandă.</div>
+                </div>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="beneficii">
+        <div class="sectionHead">
+          <div>
+            <h2>Beneficii în 3 pași</h2>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="badgeIcon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Rutină ușoară</h3>
+            <p>Integrezi produsele în program fără să complici lucrurile.</p>
+          </div>
+
+          <div class="card">
+            <div class="badgeIcon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Confort digestiv</h3>
+            <p>Susținere pentru digestie și tranzit, în funcție de nevoile tale.</p>
+          </div>
+
+          <div class="card">
+            <div class="badgeIcon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Abordare naturală</h3>
+            <p>Formule pe bază de ingrediente vegetale, cu utilizare responsabilă.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="produse">
+        <div class="sectionHead">
+          <div>
+            <h2>Produsele BioBalance</h2>
+          </div>
+        </div>
+
+        <div class="products">
+          <article class="card productCard" id="prod-ceai">
+            <div class="prodLayout">
+              <div class="prodContent">
+                <div class="tag">Ceai</div>
+                <h3>Ceai de hrișcă amară</h3>
+                <p class="prodDesc">
+                  O opțiune simplă pentru rutina de dimineață. Se potrivește bine celor care preferă ritualuri ușoare.
+                </p>
+
+                <ul class="bullets">
+                  <li>Consum recomandat: în prima parte a zilei</li>
+                  <li>Se poate bea fără îndulcitori (după preferință)</li>
+                  <li>Ideal ca rutină constantă, nu “soluție rapidă”</li>
+                </ul>
+
+                <div class="prodActions">
+                  <a class="btn btn-primary" href="#contact">Întreabă despre acest produs</a>
+                  <button class="btn btn-ghost" type="button" data-copy="Ceai de hrișcă amară">Copiază numele</button>
+                </div>
+              </div>
+
+              <div class="prodVisual" aria-hidden="true">
+                <img class="prodImg" src="ceai6.png" alt="Ceai de hrișcă amară">
+                <div class="prodStamp">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10Z" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                  <span>Rutină</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card productCard" id="prod-capsule">
+            <div class="prodLayout">
+              <div class="prodContent">
+                <div class="tag">Capsule</div>
+
+                <h3>Capsule Jen Ton — laxativ & protecția intestinului</h3>
+                <p class="prodDesc">
+                  Pentru persoanele care caută susținere pentru tranzit și confort intestinal.
+                  Recomandăm utilizare atentă și consultare dacă ai condiții preexistente.
+                </p>
+
+                <ul class="bullets">
+                  <li>Potrivite pentru perioade când ai nevoie de suport pentru tranzit</li>
+                  <li>Recomandare: hidratare + alimentație echilibrată</li>
+                  <li>Nu se recomandă utilizare excesivă / pe termen lung fără ghidare</li>
+                </ul>
+
+                <div class="prodActions">
+                  <a class="btn btn-primary" href="#contact">Întreabă despre acest produs</a>
+                  <button class="btn btn-ghost" type="button" data-copy="Capsule Jen Ton">Copiază numele</button>
+                </div>
+              </div>
+
+              <div class="prodVisual" aria-hidden="true">
+                <img class="prodImg" src="j.jpg" alt="Capsule Jen Ton">
+                <div class="prodStamp">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M7 12h10M12 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <span>Confort</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="sectionHead">
+          <div>
+            <h2>Ce spun clienții</h2>
+          </div>
+        </div>
+
+        <div class="quotes">
+          <blockquote>
+            <strong>„Rutină simplă.”</strong><br/>
+            Am introdus ceaiul dimineața și m-am simțit mai bine în câteva zile.
+          </blockquote>
+
+          <blockquote>
+            <strong>„Comunicare ok.”</strong><br/>
+            Mi-au răspuns rapid la întrebări și am ales produsul potrivit pentru mine.
+          </blockquote>
+
+          <blockquote>
+            <strong>„Minimal și clar.”</strong><br/>
+            Îmi place că nu e agresivă promovarea — doar informații și suport.
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="sectionHead">
+          <div>
+            <h2>Întrebări frecvente</h2>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>
+              De ce nu este afișat prețul?
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <p>Preferăm să oferim detalii prin contact (stoc, livrare, pachete, recomandare).</p>
+          </details>
+
+          <details>
+            <summary>
+              Cum aleg produsul potrivit?
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <p>Scrie-ne și spune-ne ce te interesează (rutină, confort digestiv, tranzit). Îți recomandăm opțiunea potrivită.</p>
+          </details>
+
+          <details>
+            <summary>
+              Sunt potrivite pentru oricine?
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <p>Dacă ești însărcinată/alăptezi, ai afecțiuni cronice sau urmezi tratament, cere sfatul medicului înainte.</p>
+          </details>
+
+          <details>
+            <summary>
+              Cum comand?
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <p>Ne contactezi pe WhatsApp / email și îți confirmăm disponibilitatea și livrarea.</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="sectionHead">
+          <div>
+            <h2>Contact</h2>
+            <p>Completează formularul sau folosește datele de contact. Răspundem cât de repede posibil.</p>
+          </div>
+        </div>
+
+        <div class="contactWrap">
+          <div class="card contactCard">
+            <h3 style="margin:0 0 6px;">Date de contact</h3>
+
+            <ul class="contactList">
+              <li>
+                <span class="badgeIcon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <div>
+                  <div><strong>Email</strong></div>
+                  <div>biobalance.exclusive@gmail.com</div>
+                </div>
+              </li>
+
+              <li>
+                <span class="badgeIcon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 11.5a8.5 8.5 0 1 1-17 0 8.5 8.5 0 0 1 17 0Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <div>
+                  <div><strong>WhatsApp</strong></div>
+                  <div>(+373) 677 01 913</div>
+                </div>
+              </li>
+            </ul>
+
+            <p class="fineprint">
+              *Informațiile de pe această pagină nu înlocuiesc sfatul medicului.
+            </p>
+          </div>
+
+          <div class="card contactCard">
+            <h3 style="margin:0 0 6px;">Scrie-ne</h3>
+            <p class="prodDesc" style="margin:0;">
+              Spune-ne ce te interesează și te contactăm cu detalii (stoc, livrare, recomandare).
+            </p>
+
+            <form id="contactForm">
+              <div>
+                <label for="name">Nume</label>
+                <input id="name" name="name" autocomplete="name" placeholder="Numele tău" required />
+              </div>
+
+              <div>
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone" autocomplete="tel" placeholder="+373 ..." required />
+              </div>
+
+              <div>
+                <label for="product">Produs de interes</label>
+                <input id="product" name="product" placeholder="Ceai de hrișcă amară / Capsule Jen Ton" />
+              </div>
+
+              <div>
+                <label for="message">Mesaj</label>
+                <textarea id="message" name="message" placeholder="Scrie întrebarea ta (ex: administrare, livrare, recomandare)..." required></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">
+                Trimite mesaj
+                <span aria-hidden="true">✉️</span>
+              </button>
+
+              <p class="fineprint" id="formNote"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>
+          <strong>BioBalance</strong> — echilibru natural, minimalist.
+        </div>
+        <div>
+          © <span id="year"></span> BioBalance •
+          <a href="#contact" style="text-decoration:underline; text-underline-offset:4px;">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ 1) Include EmailJS ONCE -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    // Smooth scroll
+    const scrollToId = (id) => {
+      const el = document.querySelector(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    document.getElementById("btnScrollProducts")?.addEventListener("click", () => scrollToId("#produse"));
+    document.getElementById("btnScrollBenefits")?.addEventListener("click", () => scrollToId("#beneficii"));
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    hamburger?.addEventListener("click", () => {
+      const isOpen = mobileMenu.style.display === "block";
+      mobileMenu.style.display = isOpen ? "none" : "block";
+      hamburger.setAttribute("aria-label", isOpen ? "Deschide meniul" : "Închide meniul");
+    });
+    document.querySelectorAll("#mobileMenu a").forEach(a => {
+      a.addEventListener("click", () => { mobileMenu.style.display = "none"; });
+    });
+
+    // Copy product name
+    document.querySelectorAll("[data-copy]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const text = btn.getAttribute("data-copy") || "";
+        try{
+          await navigator.clipboard.writeText(text);
+          const old = btn.textContent;
+          btn.textContent = "Copiat ✓";
+          setTimeout(() => btn.textContent = old, 1100);
+        }catch(e){
+          alert("Nu am putut copia. Selectează manual: " + text);
+        }
+      });
+    });
+
+    // Prefill product from hash
+    const productInput = document.getElementById("product");
+    const prefillFromHash = () => {
+      const h = window.location.hash;
+      if (!productInput) return;
+      if (h === "#prod-ceai") productInput.value = "Ceai de hrișcă amară";
+      if (h === "#prod-capsule") productInput.value = "Capsule Jen Ton";
+    };
+    window.addEventListener("hashchange", prefillFromHash);
+    prefillFromHash();
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ✅ 2) Init EmailJS ONCE (public key-ul tău)
+    emailjs.init("XY6gKlSYTjyqurrqS");
+
+    // ✅ 3) Submit handler (EmailJS)
+    const form = document.getElementById("contactForm");
+    const note = document.getElementById("formNote");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      note.textContent = "Se trimite mesajul…";
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = ".85";
+
+      emailjs.sendForm("service_3dfwre7", "template_z9yyv35", form)
+        .then(() => {
+          note.textContent = "Mulțumim! Mesajul a fost trimis cu succes.";
+          form.reset();
+        })
+        .catch((err) => {
+          console.error(err);
+          note.textContent = "Eroare la trimitere. Verifică internetul și încearcă din nou.";
+          alert("Eroare EmailJS: " + (err?.text || JSON.stringify(err)));
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "1";
+        });
+    });
+  </script>
+</body>
+</html>
