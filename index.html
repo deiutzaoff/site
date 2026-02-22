@@ -735,16 +735,23 @@
       </a>
 
       <nav class="nav-links" aria-label="Primary">
-        <a href="#home" class="active">Home</a>
-        <a href="#offer">What I Do</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
+        <a href="#home" class="active" id="navHome">Home</a>
+        <a href="#offer" id="navOffer">What I Do</a>
+        <a href="#process" id="navProcess">Process</a>
+        <a href="#contact" id="navContact">Contact</a>
       </nav>
 
       <div class="nav-cta">
+        <label for="langSelect" class="sr-only" style="position:absolute;left:-9999px;">Language</label>
+        <select class="input" id="langSelect" aria-label="Language" style="width:auto; min-width: 128px;">
+          <option value="en">EN</option>
+          <option value="ro">RO</option>
+          <option value="ru">RU</option>
+        </select>
+
         <button class="btn" id="btnScroll">Explore</button>
-        <a class="btn primary" href="#contact">
-          Book a Call
+        <a class="btn primary" href="#contact" id="bookCallBtn">
+          <span id="bookCallText">Book a Call</span>
           <span class="shimmer" aria-hidden="true"></span>
         </a>
         <button class="menu" id="menuBtn" aria-label="Open menu"><span></span></button>
@@ -752,10 +759,10 @@
     </div>
 
     <div class="container mobile" id="mobileMenu" style="display:none">
-      <a href="#home" data-close>Home</a>
-      <a href="#offer" data-close>What I Do</a>
-      <a href="#process" data-close>Process</a>
-      <a href="#contact" data-close>Contact</a>
+      <a href="#home" data-close id="mNavHome">Home</a>
+      <a href="#offer" data-close id="mNavOffer">What I Do</a>
+      <a href="#process" data-close id="mNavProcess">Process</a>
+      <a href="#contact" data-close id="mNavContact">Contact</a>
     </div>
   </header>
 
@@ -765,80 +772,80 @@
       <div>
         <div class="kicker reveal">
           <span class="dot"></span>
-          <span>Modern websites + graphic design — crafted with strategy</span>
+          <span id="kickerText">Modern websites + graphic design — crafted with strategy</span>
         </div>
 
-        <h1 class="title reveal">
+        <h1 class="title reveal" id="heroTitle">
           Design that feels <span class="grad">premium</span><br/>
           and works <span class="grad">strategically</span>.
         </h1>
 
-        <p class="subtitle reveal">
+        <p class="subtitle reveal" id="heroSubtitle">
           WebNest Studio creates modern, clean and strategic websites and visual identities for growing brands.
           I focus on simplicity, elegance and functionality — so your brand looks sharp and converts better.
         </p>
 
         <div class="hero-actions reveal">
-          <a class="btn primary" href="#contact">
-            Start a Project
+          <a class="btn primary" href="#contact" id="startProjectBtn">
+            <span id="startProjectText">Start a Project</span>
             <span class="shimmer" aria-hidden="true"></span>
           </a>
 
           <div class="magnet" id="magnetBtn" role="button" tabindex="0" aria-label="Scroll to Offer">
             <div>
-              <strong>See what I create</strong><br/>
-              <small>websites • logos • visuals</small>
+              <strong id="magnetStrong">See what I create</strong><br/>
+              <small id="magnetSmall">websites • logos • visuals</small>
             </div>
           </div>
         </div>
 
         <div class="pill reveal">
-          <span>Mobile-first</span>
-          <span>Clean UI</span>
-          <span>Basic SEO</span>
-          <span>Fast delivery</span>
+          <span id="pill1">Mobile-first</span>
+          <span id="pill2">Clean UI</span>
+          <span id="pill3">Basic SEO</span>
+          <span id="pill4">Fast delivery</span>
         </div>
 
         <div class="stats reveal" aria-label="Highlights">
           <div class="stat">
-            <b>Dark Premium</b>
-            <span>High-contrast style with a modern violet/blue glow.</span>
+            <b id="stat1b">Dark Premium</b>
+            <span id="stat1s">High-contrast style with a modern violet/blue glow.</span>
           </div>
           <div class="stat">
-            <b>Strategic</b>
-            <span>Layouts built for clarity, trust and conversion.</span>
+            <b id="stat2b">Strategic</b>
+            <span id="stat2s">Layouts built for clarity, trust and conversion.</span>
           </div>
           <div class="stat">
-            <b>Clean Visuals</b>
-            <span>Branding and graphics that look modern across platforms.</span>
+            <b id="stat3b">Clean Visuals</b>
+            <span id="stat3s">Branding and graphics that look modern across platforms.</span>
           </div>
         </div>
       </div>
 
       <aside class="showcase" id="showcaseCard" aria-label="Cinematic preview card">
         <div class="shot-top">
-          <div class="mini">WebNest Studio • preview</div>
+          <div class="mini" id="previewMini">WebNest Studio • preview</div>
           <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
         </div>
 
         <div class="shot">
           <div class="scan" aria-hidden="true"></div>
-          <h3>What you get</h3>
-          <div class="big">A website that looks <span class="grad">high-end</span> — and feels effortless.</div>
+          <h3 id="whatYouGetH3">What you get</h3>
+          <div class="big" id="shotBig">A website that looks <span class="grad">high-end</span> — and feels effortless.</div>
           <div class="line"></div>
 
           <div class="rows">
             <div class="row">
-              <b>Modern UI</b>
-              <small>minimal • sleek • bold</small>
+              <b id="row1b">Modern UI</b>
+              <small id="row1s">minimal • sleek • bold</small>
             </div>
             <div class="row">
-              <b>Mobile-ready</b>
-              <small>responsive for every screen</small>
+              <b id="row2b">Mobile-ready</b>
+              <small id="row2s">responsive for every screen</small>
             </div>
             <div class="row">
-              <b>Fast + Clean</b>
-              <small>performance-minded build</small>
+              <b id="row3b">Fast + Clean</b>
+              <small id="row3s">performance-minded build</small>
             </div>
           </div>
         </div>
@@ -849,16 +856,16 @@
   <!-- OFFER -->
   <section id="offer">
     <div class="container">
-      <h2 class="section-title reveal">What I Do</h2>
-      <p class="section-sub reveal">
+      <h2 class="section-title reveal" id="offerTitle">What I Do</h2>
+      <p class="section-sub reveal" id="offerSub">
         I’m starting out — but I’m building with a professional mindset. I deliver clean design, clear structure,
         and a premium look that helps new brands grow fast.
       </p>
 
       <div class="grid">
         <article class="card reveal tilt" data-tilt>
-          <h3>Landing Pages</h3>
-          <p>High-impact one-page websites designed to convert visitors into clients.</p>
+          <h3 id="offerCard1h">Landing Pages</h3>
+          <p id="offerCard1p">High-impact one-page websites designed to convert visitors into clients.</p>
           <div class="tagline">
             <span class="chip">modern layout</span>
             <span class="chip">contact form</span>
@@ -867,8 +874,8 @@
         </article>
 
         <article class="card reveal tilt" data-tilt>
-          <h3>Multi-page Websites</h3>
-          <p>3–5 page sites that communicate trust: Home, About, Services, Contact — structured cleanly.</p>
+          <h3 id="offerCard2h">Multi-page Websites</h3>
+          <p id="offerCard2p">3–5 page sites that communicate trust: Home, About, Services, Contact — structured cleanly.</p>
           <div class="tagline">
             <span class="chip">responsive</span>
             <span class="chip">clean sections</span>
@@ -877,8 +884,8 @@
         </article>
 
         <article class="card reveal tilt" data-tilt>
-          <h3>Logo & Visual Identity</h3>
-          <p>Minimal logos + small brand kits for a consistent look across social and web.</p>
+          <h3 id="offerCard3h">Logo & Visual Identity</h3>
+          <p id="offerCard3p">Minimal logos + small brand kits for a consistent look across social and web.</p>
           <div class="tagline">
             <span class="chip">logo concepts</span>
             <span class="chip">brand palette</span>
@@ -892,15 +899,15 @@
   <!-- PROCESS -->
   <section id="process">
     <div class="container">
-      <h2 class="section-title reveal">My Simple Process</h2>
-      <p class="section-sub reveal">
+      <h2 class="section-title reveal" id="processTitle">My Simple Process</h2>
+      <p class="section-sub reveal" id="processSub">
         No stress, no confusion. A clear workflow that keeps everything smooth — especially if it’s your first time working with a designer.
       </p>
 
       <div class="grid">
         <article class="card reveal tilt" data-tilt>
-          <h3>1) Quick discovery</h3>
-          <p>We clarify your goal, style direction, and what you need (website, logo, or both).</p>
+          <h3 id="procCard1h">1) Quick discovery</h3>
+          <p id="procCard1p">We clarify your goal, style direction, and what you need (website, logo, or both).</p>
           <div class="tagline">
             <span class="chip">direction</span>
             <span class="chip">scope</span>
@@ -909,8 +916,8 @@
         </article>
 
         <article class="card reveal tilt" data-tilt>
-          <h3>2) Design + build</h3>
-          <p>I design the structure, then build it cleanly. You get 1–2 revisions included.</p>
+          <h3 id="procCard2h">2) Design + build</h3>
+          <p id="procCard2p">I design the structure, then build it cleanly. You get 1–2 revisions included.</p>
           <div class="tagline">
             <span class="chip">clean UI</span>
             <span class="chip">responsive</span>
@@ -919,8 +926,8 @@
         </article>
 
         <article class="card reveal tilt" data-tilt>
-          <h3>3) Launch-ready</h3>
-          <p>You receive files, guidance, and a final polish so your brand looks premium online.</p>
+          <h3 id="procCard3h">3) Launch-ready</h3>
+          <p id="procCard3p">You receive files, guidance, and a final polish so your brand looks premium online.</p>
           <div class="tagline">
             <span class="chip">final polish</span>
             <span class="chip">handover</span>
@@ -930,11 +937,11 @@
       </div>
 
       <div class="hero-actions reveal" style="margin-top:22px;">
-        <a class="btn primary" href="#contact">
-          Get a Quote
+        <a class="btn primary" href="#contact" id="getQuoteBtn">
+          <span id="getQuoteText">Get a Quote</span>
           <span class="shimmer" aria-hidden="true"></span>
         </a>
-        <button class="btn" id="toTop">Back to top</button>
+        <button class="btn" id="toTop"><span id="backTopText">Back to top</span></button>
       </div>
     </div>
   </section>
@@ -942,8 +949,8 @@
   <!-- PRICING -->
 <section id="pricing">
   <div class="container">
-    <h2 class="section-title reveal">Pricing</h2>
-    <p class="section-sub reveal">
+    <h2 class="section-title reveal" id="pricingTitle">Pricing</h2>
+    <p class="section-sub reveal" id="pricingSub">
       Clear pricing for growing brands. Final quote depends on scope,
       number of pages and content readiness.
     </p>
@@ -952,69 +959,60 @@
 
       <!-- LANDING PAGE -->
       <div class="price-card reveal">
-        <h3>Landing Page</h3>
-        <div class="price">Starting at $120</div>
+        <h3 id="price1h">Landing Page</h3>
+        <div class="price" id="price1v">Starting at $120</div>
 
         <ul>
-          <li>✔ 1 modern scroll-based page</li>
-          <li>✔ Mobile responsive design</li>
-          <li>✔ Contact form integration</li>
-          <li>✔ Basic SEO setup</li>
-          <li>✔ Clean and structured layout</li>
-          <li>✔ 1–2 revisions included</li>
+          <li id="p1li1">✔ 1 modern scroll-based page</li>
+          <li id="p1li2">✔ Mobile responsive design</li>
+          <li id="p1li3">✔ Contact form integration</li>
+          <li id="p1li4">✔ Basic SEO setup</li>
+          <li id="p1li5">✔ Clean and structured layout</li>
+          <li id="p1li6">✔ 1–2 revisions included</li>
         </ul>
 
-        <p class="price-desc">
-          Perfect for personal brands, freelancers or small businesses
-          that need a strong online presence fast.
-        </p>
+        <p class="price-desc" id="price1d">Perfect for personal brands, freelancers or small businesses that need a strong online presence fast.</p>
 
-        <a href="#contact" class="btn primary">Get Started</a>
+        <a href="#contact" class="btn primary" id="price1btn">Get Started</a>
       </div>
 
       <!-- WEBSITE -->
       <div class="price-card highlight reveal">
-        <div class="badge">Most Popular</div>
-        <h3>Website (3–5 Pages)</h3>
-        <div class="price">Starting at $280</div>
+        <div class="badge" id="mostPopularBadge">Most Popular</div>
+        <h3 id="price2h">Website (3–5 Pages)</h3>
+        <div class="price" id="price2v">Starting at $280</div>
 
         <ul>
-          <li>✔ Home, About, Services, Contact</li>
-          <li>✔ Additional page if needed</li>
-          <li>✔ Fully responsive</li>
-          <li>✔ Clean UI structure</li>
-          <li>✔ Basic SEO optimization</li>
-          <li>✔ 1–2 revisions included</li>
+          <li id="p2li1">✔ Home, About, Services, Contact</li>
+          <li id="p2li2">✔ Additional page if needed</li>
+          <li id="p2li3">✔ Fully responsive</li>
+          <li id="p2li4">✔ Clean UI structure</li>
+          <li id="p2li5">✔ Basic SEO optimization</li>
+          <li id="p2li6">✔ 1–2 revisions included</li>
         </ul>
 
-        <p class="price-desc">
-          Ideal for businesses that want to look professional,
-          trustworthy and organized online.
-        </p>
+        <p class="price-desc" id="price2d">Ideal for businesses that want to look professional, trustworthy and organized online.</p>
 
-        <a href="#contact" class="btn primary">Get Quote</a>
+        <a href="#contact" class="btn primary" id="price2btn">Get Quote</a>
       </div>
 
       <!-- E-COMMERCE -->
       <div class="price-card reveal">
-        <h3>E-commerce Website</h3>
-        <div class="price">Starting at $650</div>
+        <h3 id="price3h">E-commerce Website</h3>
+        <div class="price" id="price3v">Starting at $650</div>
 
         <ul>
-          <li>✔ Online shop setup</li>
-          <li>✔ Product pages (up to 10 products)</li>
-          <li>✔ Payment integration</li>
-          <li>✔ Mobile optimization</li>
-          <li>✔ Basic store structure</li>
-          <li>✔ 1–2 revisions included</li>
+          <li id="p3li1">✔ Online shop setup</li>
+          <li id="p3li2">✔ Product pages (up to 10 products)</li>
+          <li id="p3li3">✔ Payment integration</li>
+          <li id="p3li4">✔ Mobile optimization</li>
+          <li id="p3li5">✔ Basic store structure</li>
+          <li id="p3li6">✔ 1–2 revisions included</li>
         </ul>
 
-        <p class="price-desc">
-          For brands ready to sell products online with
-          a clean and modern store experience.
-        </p>
+        <p class="price-desc" id="price3d">For brands ready to sell products online with a clean and modern store experience.</p>
 
-        <a href="#contact" class="btn primary">Start Selling</a>
+        <a href="#contact" class="btn primary" id="price3btn">Start Selling</a>
       </div>
 
     </div>
@@ -1023,33 +1021,33 @@
     <div class="pricing-grid secondary">
 
       <div class="price-card small reveal">
-        <h3>Logo Design</h3>
-        <div class="price">$50 – $100</div>
+        <h3 id="g1h">Logo Design</h3>
+        <div class="price" id="g1v">$50 – $100</div>
         <ul>
-          <li>✔ 2–3 logo concepts</li>
-          <li>✔ 2 revisions</li>
-          <li>✔ PNG + JPG files</li>
+          <li id="g1li1">✔ 2–3 logo concepts</li>
+          <li id="g1li2">✔ 2 revisions</li>
+          <li id="g1li3">✔ PNG + JPG files</li>
         </ul>
       </div>
 
       <div class="price-card small reveal">
-        <h3>Logo + Mini Brand Kit</h3>
-        <div class="price">$130 – $260</div>
+        <h3 id="g2h">Logo + Mini Brand Kit</h3>
+        <div class="price" id="g2v">$130 – $260</div>
         <ul>
-          <li>✔ Logo design</li>
-          <li>✔ Color palette</li>
-          <li>✔ Font pairing</li>
-          <li>✔ Social media preview</li>
+          <li id="g2li1">✔ Logo design</li>
+          <li id="g2li2">✔ Color palette</li>
+          <li id="g2li3">✔ Font pairing</li>
+          <li id="g2li4">✔ Social media preview</li>
         </ul>
       </div>
 
       <div class="price-card small reveal">
-        <h3>Social Media (5 Posts)</h3>
-        <div class="price">$40 – $85</div>
+        <h3 id="g3h">Social Media (5 Posts)</h3>
+        <div class="price" id="g3v">$40 – $85</div>
         <ul>
-          <li>✔ Custom design posts</li>
-          <li>✔ Matching brand style</li>
-          <li>✔ Ready to upload files</li>
+          <li id="g3li1">✔ Custom design posts</li>
+          <li id="g3li2">✔ Matching brand style</li>
+          <li id="g3li3">✔ Ready to upload files</li>
         </ul>
       </div>
 
@@ -1061,16 +1059,16 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <h2 class="section-title reveal">Let’s build something clean</h2>
-      <p class="section-sub reveal">
+      <h2 class="section-title reveal" id="contactTitle">Let’s build something clean</h2>
+      <p class="section-sub reveal" id="contactSub">
         Tell me what you need and I’ll reply with a simple plan + price range.
         (Tip: I can offer a discount for the first 3 projects.)
       </p>
 
       <div class="grid">
         <article class="card reveal" style="grid-column: span 7;">
-          <h3>Send a message</h3>
-          <p>Fill this quick form. It’s a demo (no backend), but you’ll see a premium interaction.</p>
+          <h3 id="sendMsgH3">Send a message</h3>
+          <p id="sendMsgP">Fill this quick form. It’s a demo (no backend), but you’ll see a premium interaction.</p>
 
           <form id="contactForm" style="margin-top:14px;" onsubmit="sendMail(event)">
             <div style="display:grid; gap:10px;">
@@ -1078,32 +1076,30 @@
               <input class="input" id="email" name="email" placeholder="Email address" type="email" required />
 
               <select class="input" id="service" name="service" required>
-                <option value="" disabled selected>What do you need?</option>
-                <option>Landing Page</option>
-                <option>Website (3–5 pages)</option>
-                <option>E-commerce</option>
-                <option>Logo Design</option>
-                <option>Logo + Mini Brand Kit</option>
-                <option>Social Media Designs</option>
+                <option value="" disabled selected id="servicePh">What do you need?</option>
+                <option id="serviceOpt1">Landing Page</option>
+                <option id="serviceOpt2">Website (3–5 pages)</option>
+                <option id="serviceOpt3">E-commerce</option>
+                <option id="serviceOpt4">Logo Design</option>
+                <option id="serviceOpt5">Logo + Mini Brand Kit</option>
+                <option id="serviceOpt6">Social Media Designs</option>
               </select>
 
               <textarea class="input" id="message" name="message" rows="5" placeholder="Describe your project..." required></textarea>
 
-              <button class="btn primary" type="submit">
-                Send Message
+              <button class="btn primary" type="submit" id="sendBtn">
+                <span id="sendBtnText">Send Message</span>
                 <span class="shimmer" aria-hidden="true"></span>
               </button>
 
-              <small style="color:rgba(255,255,255,.55); line-height:1.5;">
-                You can later connect this to a real backend or email service. For now it shows the UI & flow.
-              </small>
+              <small style="color:rgba(255,255,255,.55); line-height:1.5;" id="formNote">You can later connect this to a real backend or email service. For now it shows the UI & flow.</small>
             </div>
           </form>
         </article>
 
         <article class="card reveal" style="grid-column: span 5;">
-          <h3>Quick notes</h3>
-          <p>Professional terms that keep the project smooth and fair for both sides.</p>
+          <h3 id="quickNotesH3">Quick notes</h3>
+          <p id="quickNotesP">Professional terms that keep the project smooth and fair for both sides.</p>
 
           <div class="tagline" style="margin-top:14px;">
             <span class="chip">50% deposit</span>
@@ -1116,17 +1112,17 @@
 
           <div style="margin-top:16px;">
             <div class="row" style="margin-bottom:10px;">
-              <b>Response time</b>
-              <small>within 24–48h</small>
+              <b id="respTimeB">Response time</b>
+              <small id="respTimeS">within 24–48h</small>
             </div>
             <div class="row">
-              <b>Timezone</b>
+              <b id="timezoneB">Timezone</b>
               <small>Europe / Chișinău</small>
             </div>
           </div>
 
           <div class="hero-actions" style="margin-top:16px;">
-            <a class="btn" href="#offer">View Services</a>
+            <a class="btn" href="#offer" id="viewServicesBtn">View Services</a>
             <a class="btn primary" href="#home">
               Home
               <span class="shimmer" aria-hidden="true"></span>
@@ -1138,7 +1134,7 @@
   </section>
 
   <footer>
-    © 2026 WebNest Studio — Modern web design & graphic design.
+    <span id="footerText">© 2026 WebNest Studio — Modern web design & graphic design.</span>
   </footer>
 
   <script>
@@ -1341,6 +1337,338 @@ function sendMail(e) {
     else alert("Eroare la trimitere. Încearcă din nou.");
   });
 }
+</script>
+
+
+<script>
+  // ===== i18n: EN / RO / RU =====
+  const I18N = {
+    en: { navHome:"Home", navOffer:"What I Do", navProcess:"Process", navContact:"Contact",
+      btnScroll:"Explore", bookCallText:"Book a Call",
+      kickerText:"Modern websites + graphic design — crafted with strategy",
+      heroTitleHTML:'Design that feels <span class="grad">premium</span><br/>and works <span class="grad">strategically</span>.',
+      heroSubtitle:"WebNest Studio creates modern, clean and strategic websites and visual identities for growing brands. I focus on simplicity, elegance and functionality — so your brand looks sharp and converts better.",
+      startProjectText:"Start a Project", magnetStrong:"See what I create", magnetSmall:"websites • logos • visuals",
+      pill1:"Mobile-first", pill2:"Clean UI", pill3:"Basic SEO", pill4:"Fast delivery",
+      stat1b:"Dark Premium", stat1s:"High-contrast style with a modern violet/blue glow.",
+      stat2b:"Strategic", stat2s:"Layouts built for clarity, trust and conversion.",
+      stat3b:"Clean Visuals", stat3s:"Branding and graphics that look modern across platforms.",
+      previewMini:"WebNest Studio • preview", whatYouGetH3:"What you get",
+      shotBigHTML:'A website that looks <span class="grad">high-end</span> — and feels effortless.',
+      row1b:"Modern UI", row1s:"minimal • sleek • bold", row2b:"Mobile-ready", row2s:"responsive for every screen",
+      row3b:"Fast + Clean", row3s:"performance-minded build",
+      offerTitle:"What I Do",
+      offerSub:"I’m starting out — but I’m building with a professional mindset. I deliver clean design, clear structure, and a premium look that helps new brands grow fast.",
+      offerCard1h:"Landing Pages", offerCard1p:"High-impact one-page websites designed to convert visitors into clients.",
+      offerCard2h:"Multi-page Websites", offerCard2p:"3–5 page sites that communicate trust: Home, About, Services, Contact — structured cleanly.",
+      offerCard3h:"Logo & Visual Identity", offerCard3p:"Minimal logos + small brand kits for a consistent look across social and web.",
+      processTitle:"My Simple Process",
+      processSub:"No stress, no confusion. A clear workflow that keeps everything smooth — especially if it’s your first time working with a designer.",
+      procCard1h:"1) Quick discovery", procCard1p:"We clarify your goal, style direction, and what you need (website, logo, or both).",
+      procCard2h:"2) Design + build", procCard2p:"I design the structure, then build it cleanly. You get 1–2 revisions included.",
+      procCard3h:"3) Launch-ready", procCard3p:"You receive files, guidance, and a final polish so your brand looks premium online.",
+      getQuoteText:"Get a Quote", backTopText:"Back to top",
+      pricingTitle:"Pricing", pricingSub:"Clear pricing for growing brands. Final quote depends on scope, number of pages and content readiness.",
+      price1h:"Landing Page", price1v:"Starting at $120", price1d:"Perfect for personal brands, freelancers or small businesses that need a strong online presence fast.", price1btn:"Get Started",
+      mostPopularBadge:"Most Popular",
+      price2h:"Website (3–5 Pages)", price2v:"Starting at $280", price2d:"Ideal for businesses that want to look professional, trustworthy and organized online.", price2btn:"Get Quote",
+      price3h:"E-commerce Website", price3v:"Starting at $650", price3d:"For brands ready to sell products online with a clean and modern store experience.", price3btn:"Start Selling",
+      g1h:"Logo Design", g2h:"Logo + Mini Brand Kit", g3h:"Social Media (5 Posts)",
+      contactTitle:"Let’s build something clean",
+      contactSub:"Tell me what you need and I’ll reply with a simple plan + price range. (Tip: I can offer a discount for the first 3 projects.)",
+      sendMsgH3:"Send a message", sendMsgP:"Fill this quick form. It’s a demo (no backend), but you’ll see a premium interaction.",
+      namePh:"Your name", emailPh:"Email address", servicePh:"What do you need?",
+      serviceOpt1:"Landing Page", serviceOpt2:"Website (3–5 pages)", serviceOpt3:"E-commerce", serviceOpt4:"Logo Design", serviceOpt5:"Logo + Mini Brand Kit", serviceOpt6:"Social Media Designs",
+      msgPh:"Describe your project...", sendBtnText:"Send Message",
+      formNote:"You can later connect this to a real backend or email service. For now it shows the UI & flow.",
+      quickNotesH3:"Quick notes", quickNotesP:"Professional terms that keep the project smooth and fair for both sides.",
+      respTimeB:"Response time", respTimeS:"within 24–48h", timezoneB:"Timezone", viewServicesBtn:"View Services",
+      footerText:"© 2026 WebNest Studio — Modern web design & graphic design.",
+      toastFillAll:"Please complete all fields.", toastSent:"Message sent successfully!", toastError:"Send failed. Please try again."
+      ,
+      p1li1:"✔ 1 modern scroll-based page",
+      p1li2:"✔ Mobile responsive design",
+      p1li3:"✔ Contact form integration",
+      p1li4:"✔ Basic SEO setup",
+      p1li5:"✔ Clean and structured layout",
+      p1li6:"✔ 1–2 revisions included",
+      p2li1:"✔ Home, About, Services, Contact",
+      p2li2:"✔ Additional page if needed",
+      p2li3:"✔ Fully responsive",
+      p2li4:"✔ Clean UI structure",
+      p2li5:"✔ Basic SEO optimization",
+      p2li6:"✔ 1–2 revisions included",
+      p3li1:"✔ Online shop setup",
+      p3li2:"✔ Product pages (up to 10 products)",
+      p3li3:"✔ Payment integration",
+      p3li4:"✔ Mobile optimization",
+      p3li5:"✔ Basic store structure",
+      p3li6:"✔ 1–2 revisions included",
+      g1v:"$50 – $100",
+      g1li1:"✔ 2–3 logo concepts",
+      g1li2:"✔ 2 revisions",
+      g1li3:"✔ PNG + JPG files",
+      g2v:"$130 – $260",
+      g2li1:"✔ Logo design",
+      g2li2:"✔ Color palette",
+      g2li3:"✔ Font pairing",
+      g2li4:"✔ Social media preview",
+      g3v:"$40 – $85",
+      g3li1:"✔ Custom design posts",
+      g3li2:"✔ Matching brand style",
+      g3li3:"✔ Ready to upload files"
+
+    },
+    ro: { navHome:"Acasă", navOffer:"Servicii", navProcess:"Proces", navContact:"Contact",
+      btnScroll:"Explorează", bookCallText:"Programează un apel",
+      kickerText:"Site-uri moderne + design grafic — construite cu strategie",
+      heroTitleHTML:'Design care se simte <span class="grad">premium</span><br/>și funcționează <span class="grad">strategic</span>.',
+      heroSubtitle:"WebNest Studio creează site-uri moderne, curate și strategice, plus identități vizuale pentru branduri în creștere. Mă concentrez pe simplitate, eleganță și funcționalitate — ca brandul tău să arate bine și să convertească mai ușor.",
+      startProjectText:"Începe un proiect", magnetStrong:"Vezi ce creez", magnetSmall:"site-uri • logo-uri • vizualuri",
+      pill1:"Mobile-first", pill2:"UI curat", pill3:"SEO de bază", pill4:"Livrare rapidă",
+      stat1b:"Dark Premium", stat1s:"Stil cu contrast mare și glow modern violet/albastru.",
+      stat2b:"Strategic", stat2s:"Layout-uri pentru claritate, încredere și conversie.",
+      stat3b:"Vizual curat", stat3s:"Branding și grafici moderne, consistente pe toate platformele.",
+      previewMini:"WebNest Studio • previzualizare", whatYouGetH3:"Ce primești",
+      shotBigHTML:'Un site care arată <span class="grad">high-end</span> — și se simte effortless.',
+      row1b:"UI modern", row1s:"minimal • sleek • bold", row2b:"Pregătit pentru mobil", row2s:"responsive pe orice ecran",
+      row3b:"Rapid + curat", row3s:"construit pentru performanță",
+      offerTitle:"Servicii",
+      offerSub:"Sunt la început — dar lucrez cu mentalitate profesionistă. Livrez design curat, structură clară și un look premium care ajută brandurile noi să crească rapid.",
+      offerCard1h:"Landing Page", offerCard1p:"Site one-page cu impact, gândit să transforme vizitatorii în clienți.",
+      offerCard2h:"Site multi-pagină", offerCard2p:"Site de 3–5 pagini care inspiră încredere: Acasă, Despre, Servicii, Contact — structurat clar.",
+      offerCard3h:"Logo & identitate vizuală", offerCard3p:"Logo-uri minimaliste + mini brand kit pentru un look consistent pe social și web.",
+      processTitle:"Procesul meu simplu",
+      processSub:"Fără stres, fără confuzie. Un workflow clar care menține totul ușor — mai ales dacă e prima ta colaborare cu un designer.",
+      procCard1h:"1) Descoperire rapidă", procCard1p:"Clarificăm obiectivul, direcția de stil și de ce ai nevoie (site, logo sau ambele).",
+      procCard2h:"2) Design + build", procCard2p:"Proiectez structura, apoi o construiesc curat. Ai incluse 1–2 revizii.",
+      procCard3h:"3) Gata de lansare", procCard3p:"Primești fișierele, ghidaj și polish final ca brandul tău să arate premium online.",
+      getQuoteText:"Cere o ofertă", backTopText:"Sus",
+      pricingTitle:"Prețuri", pricingSub:"Prețuri clare pentru branduri în creștere. Oferta finală depinde de scop, numărul de pagini și cât de pregătit este conținutul.",
+      price1h:"Landing Page", price1v:"De la $120", price1d:"Perfect pentru branduri personale, freelanceri sau afaceri mici care au nevoie rapid de o prezență online puternică.", price1btn:"Începe",
+      mostPopularBadge:"Cel mai ales",
+      price2h:"Site (3–5 pagini)", price2v:"De la $280", price2d:"Ideal pentru afaceri care vor să arate profesionist, de încredere și bine organizat online.", price2btn:"Cere preț",
+      price3h:"Site E-commerce", price3v:"De la $650", price3d:"Pentru branduri gata să vândă online, cu un magazin curat și modern.", price3btn:"Vinde online",
+      g1h:"Design logo", g2h:"Logo + mini brand kit", g3h:"Social media (5 postări)",
+      contactTitle:"Hai să construim ceva curat",
+      contactSub:"Spune-mi de ce ai nevoie și îți răspund cu un plan simplu + un interval de preț. (Tip: pot oferi reducere pentru primele 3 proiecte.)",
+      sendMsgH3:"Trimite un mesaj", sendMsgP:"Completează acest formular. E un demo (fără backend), dar vei vedea o interacțiune premium.",
+      namePh:"Numele tău", emailPh:"Adresa de email", servicePh:"De ce ai nevoie?",
+      serviceOpt1:"Landing Page", serviceOpt2:"Site (3–5 pagini)", serviceOpt3:"E-commerce", serviceOpt4:"Design logo", serviceOpt5:"Logo + mini brand kit", serviceOpt6:"Designuri social media",
+      msgPh:"Descrie proiectul tău...", sendBtnText:"Trimite mesajul",
+      formNote:"Mai târziu poți conecta un backend real sau un serviciu de email. Acum arată UI-ul și flow-ul.",
+      quickNotesH3:"Note rapide", quickNotesP:"Termeni profesioniști care păstrează proiectul clar și corect pentru ambele părți.",
+      respTimeB:"Timp de răspuns", respTimeS:"în 24–48h", timezoneB:"Fus orar", viewServicesBtn:"Vezi serviciile",
+      footerText:"© 2026 WebNest Studio — Web design modern & design grafic.",
+      toastFillAll:"Te rog completează toate câmpurile.", toastSent:"Mesaj trimis cu succes!", toastError:"Eroare la trimitere. Încearcă din nou."
+      ,
+      p1li1:"✔ 1 pagină modernă cu scroll",
+      p1li2:"✔ Design responsive pentru mobil",
+      p1li3:"✔ Integrare formular de contact",
+      p1li4:"✔ SEO de bază",
+      p1li5:"✔ Layout curat și structurat",
+      p1li6:"✔ 1–2 revizii incluse",
+      p2li1:"✔ Acasă, Despre, Servicii, Contact",
+      p2li2:"✔ Pagină suplimentară la nevoie",
+      p2li3:"✔ Complet responsive",
+      p2li4:"✔ Structură UI curată",
+      p2li5:"✔ Optimizare SEO de bază",
+      p2li6:"✔ 1–2 revizii incluse",
+      p3li1:"✔ Setare magazin online",
+      p3li2:"✔ Pagini produse (până la 10 produse)",
+      p3li3:"✔ Integrare plăți",
+      p3li4:"✔ Optimizare pentru mobil",
+      p3li5:"✔ Structură de bază a magazinului",
+      p3li6:"✔ 1–2 revizii incluse",
+      g1v:"$50 – $100",
+      g1li1:"✔ 2–3 concepte de logo",
+      g1li2:"✔ 2 revizii",
+      g1li3:"✔ Fișiere PNG + JPG",
+      g2v:"$130 – $260",
+      g2li1:"✔ Design logo",
+      g2li2:"✔ Paletă de culori",
+      g2li3:"✔ Font pairing",
+      g2li4:"✔ Preview pentru social media",
+      g3v:"$40 – $85",
+      g3li1:"✔ Postări cu design custom",
+      g3li2:"✔ Stil de brand potrivit",
+      g3li3:"✔ Fișiere gata de upload"
+
+    },
+    ru: { navHome:"Главная", navOffer:"Услуги", navProcess:"Процесс", navContact:"Контакты",
+      btnScroll:"Смотреть", bookCallText:"Записаться на звонок",
+      kickerText:"Современные сайты + графический дизайн — с стратегией",
+      heroTitleHTML:'Дизайн, который ощущается <span class="grad">премиальным</span><br/>и работает <span class="grad">стратегически</span>.',
+      heroSubtitle:"WebNest Studio создаёт современные, чистые и стратегичные сайты и визуальные айдентики для растущих брендов. Я фокусируюсь на простоте, элегантности и функциональности — чтобы ваш бренд выглядел сильнее и лучше конвертировал.",
+      startProjectText:"Начать проект", magnetStrong:"Посмотреть работы", magnetSmall:"сайты • логотипы • визуалы",
+      pill1:"Mobile-first", pill2:"Чистый UI", pill3:"Базовый SEO", pill4:"Быстрая сдача",
+      stat1b:"Тёмный премиум", stat1s:"Высокий контраст и современное свечение фиолетовый/синий.",
+      stat2b:"Стратегия", stat2s:"Макеты для ясности, доверия и конверсии.",
+      stat3b:"Чистая графика", stat3s:"Брендинг и визуалы, которые выглядят современно на всех платформах.",
+      previewMini:"WebNest Studio • превью", whatYouGetH3:"Что вы получите",
+      shotBigHTML:'Сайт, который выглядит <span class="grad">дорого</span> — и ощущается легко.',
+      row1b:"Современный UI", row1s:"минимал • аккуратно • смело", row2b:"Готово для мобильных", row2s:"адаптивно для любого экрана",
+      row3b:"Быстро + чисто", row3s:"ориентировано на производительность",
+      offerTitle:"Услуги",
+      offerSub:"Я только начинаю — но работаю с профессиональным подходом. Чистый дизайн, понятная структура и премиальный вид, который помогает молодым брендам расти.",
+      offerCard1h:"Лендинг", offerCard1p:"Одностраничный сайт с сильной подачей, чтобы превращать посетителей в клиентов.",
+      offerCard2h:"Многостраничный сайт", offerCard2p:"Сайт на 3–5 страниц (Главная, О нас, Услуги, Контакты) — аккуратно и понятно.",
+      offerCard3h:"Логотип и айдентика", offerCard3p:"Минималистичные логотипы + небольшой бренд-кит для единого стиля в соцсетях и на сайте.",
+      processTitle:"Простой процесс",
+      processSub:"Без стресса и путаницы. Понятный рабочий процесс — особенно если вы впервые работаете с дизайнером.",
+      procCard1h:"1) Быстрый бриф", procCard1p:"Уточняем цель, стиль и что нужно (сайт, логотип или всё вместе).",
+      procCard2h:"2) Дизайн + разработка", procCard2p:"Делаю структуру и дизайн, затем аккуратно собираю сайт. Включены 1–2 правки.",
+      procCard3h:"3) Готово к запуску", procCard3p:"Вы получаете файлы, рекомендации и финальную полировку, чтобы бренд выглядел премиально онлайн.",
+      getQuoteText:"Узнать цену", backTopText:"Наверх",
+      pricingTitle:"Цены", pricingSub:"Прозрачные цены для растущих брендов. Итог зависит от объёма, количества страниц и готовности контента.",
+      price1h:"Лендинг", price1v:"От $120", price1d:"Отлично для личных брендов, фрилансеров и малого бизнеса — быстро получить сильное онлайн-присутствие.", price1btn:"Начать",
+      mostPopularBadge:"Популярно",
+      price2h:"Сайт (3–5 страниц)", price2v:"От $280", price2d:"Для бизнеса, который хочет выглядеть профессионально, надёжно и структурированно.", price2btn:"Запросить",
+      price3h:"Интернет-магазин", price3v:"От $650", price3d:"Для брендов, готовых продавать онлайн: чистый и современный опыт покупок.", price3btn:"Продавать",
+      g1h:"Дизайн логотипа", g2h:"Логотип + мини бренд-кит", g3h:"Соцсети (5 постов)",
+      contactTitle:"Давайте сделаем чисто",
+      contactSub:"Опишите, что вам нужно — и я отвечу простым планом + диапазоном цены. (Подсказка: могу дать скидку на первые 3 проекта.)",
+      sendMsgH3:"Отправить сообщение", sendMsgP:"Заполните форму. Это демо (без backend), но вы увидите премиальное взаимодействие.",
+      namePh:"Ваше имя", emailPh:"Email", servicePh:"Что вам нужно?",
+      serviceOpt1:"Лендинг", serviceOpt2:"Сайт (3–5 страниц)", serviceOpt3:"E-commerce", serviceOpt4:"Дизайн логотипа", serviceOpt5:"Логотип + мини бренд-кит", serviceOpt6:"Дизайн для соцсетей",
+      msgPh:"Опишите проект...", sendBtnText:"Отправить",
+      formNote:"Позже можно подключить настоящий backend или email-сервис. Сейчас это показывает UI и сценарий.",
+      quickNotesH3:"Коротко о важном", quickNotesP:"Профессиональные условия, чтобы проект был понятным и честным для обеих сторон.",
+      respTimeB:"Время ответа", respTimeS:"в течение 24–48 ч", timezoneB:"Часовой пояс", viewServicesBtn:"Посмотреть услуги",
+      footerText:"© 2026 WebNest Studio — современный веб-дизайн и графический дизайн.",
+      toastFillAll:"Пожалуйста, заполните все поля.", toastSent:"Сообщение отправлено!", toastError:"Ошибка отправки. Попробуйте ещё раз."
+      ,
+      p1li1:"✔ 1 современная страница (скролл)",
+      p1li2:"✔ Адаптивный дизайн для мобильных",
+      p1li3:"✔ Интеграция формы контакта",
+      p1li4:"✔ Базовая настройка SEO",
+      p1li5:"✔ Чистая и структурированная верстка",
+      p1li6:"✔ 1–2 правки включены",
+      p2li1:"✔ Главная, О нас, Услуги, Контакты",
+      p2li2:"✔ Доп. страница при необходимости",
+      p2li3:"✔ Полностью адаптивно",
+      p2li4:"✔ Чистая UI-структура",
+      p2li5:"✔ Базовая SEO-оптимизация",
+      p2li6:"✔ 1–2 правки включены",
+      p3li1:"✔ Настройка интернет-магазина",
+      p3li2:"✔ Страницы товаров (до 10 товаров)",
+      p3li3:"✔ Интеграция оплаты",
+      p3li4:"✔ Оптимизация для мобильных",
+      p3li5:"✔ Базовая структура магазина",
+      p3li6:"✔ 1–2 правки включены",
+      g1v:"$50 – $100",
+      g1li1:"✔ 2–3 концепта логотипа",
+      g1li2:"✔ 2 правки",
+      g1li3:"✔ Файлы PNG + JPG",
+      g2v:"$130 – $260",
+      g2li1:"✔ Дизайн логотипа",
+      g2li2:"✔ Палитра цветов",
+      g2li3:"✔ Подбор шрифтов",
+      g2li4:"✔ Превью для соцсетей",
+      g3v:"$40 – $85",
+      g3li1:"✔ Индивидуальные посты",
+      g3li2:"✔ Единый стиль бренда",
+      g3li3:"✔ Файлы готовы к загрузке"
+
+    }
+  };
+
+  const $ = (id) => document.getElementById(id);
+
+  function applyLang(lang){
+    const t = I18N[lang] || I18N.en;
+    document.documentElement.lang = lang;
+
+    ["navHome","navOffer","navProcess","navContact"].forEach(id => { const el=$(id); if(el) el.textContent = t[id]; });
+    ["mNavHome","mNavOffer","mNavProcess","mNavContact"].forEach(id => { const el=$(id); if(el) el.textContent = t[id.replace("m","nav")]; });
+
+    const btnScroll = $("btnScroll"); if(btnScroll) btnScroll.textContent = t.btnScroll;
+    const bookCall = $("bookCallText"); if(bookCall) bookCall.textContent = t.bookCallText;
+
+    const kicker = $("kickerText"); if(kicker) kicker.textContent = t.kickerText;
+    const heroTitle = $("heroTitle"); if(heroTitle) heroTitle.innerHTML = t.heroTitleHTML;
+    const heroSub = $("heroSubtitle"); if(heroSub) heroSub.textContent = t.heroSubtitle;
+    const sp = $("startProjectText"); if(sp) sp.textContent = t.startProjectText;
+
+    const ms = $("magnetStrong"); if(ms) ms.textContent = t.magnetStrong;
+    const msmall = $("magnetSmall"); if(msmall) msmall.textContent = t.magnetSmall;
+
+    ["pill1","pill2","pill3","pill4","stat1b","stat1s","stat2b","stat2s","stat3b","stat3s",
+     "previewMini","whatYouGetH3","row1b","row1s","row2b","row2s","row3b","row3s",
+     "offerTitle","offerSub","offerCard1h","offerCard1p","offerCard2h","offerCard2p","offerCard3h","offerCard3p",
+     "processTitle","processSub","procCard1h","procCard1p","procCard2h","procCard2p","procCard3h","procCard3p",
+     "getQuoteText","backTopText","pricingTitle","pricingSub",
+     "price1h","price1v","price1d","price1btn","mostPopularBadge","price2h","price2v","price2d","price2btn",
+     "price3h","price3v","price3d","price3btn","g1h","g2h","g3h",
+     "contactTitle","contactSub","sendMsgH3","sendMsgP","sendBtnText","formNote",
+     "quickNotesH3","quickNotesP","respTimeB","respTimeS","timezoneB","viewServicesBtn","footerText","p1li1","p1li2","p1li3","p1li4","p1li5","p1li6","p2li1","p2li2","p2li3","p2li4","p2li5","p2li6","p3li1","p3li2","p3li3","p3li4","p3li5","p3li6","g1v","g1li1","g1li2","g1li3","g2v","g2li1","g2li2","g2li3","g2li4","g3v","g3li1","g3li2","g3li3"
+    ].forEach(id => { const el=$(id); if(el) el.textContent = t[id]; });
+
+    const shotBig = $("shotBig"); if(shotBig) shotBig.innerHTML = t.shotBigHTML;
+
+    const name = $("name"); if(name) name.placeholder = t.namePh;
+    const email = $("email"); if(email) email.placeholder = t.emailPh;
+    const msg = $("message"); if(msg) msg.placeholder = t.msgPh;
+
+    const servicePh = $("servicePh"); if(servicePh) servicePh.textContent = t.servicePh;
+    ["serviceOpt1","serviceOpt2","serviceOpt3","serviceOpt4","serviceOpt5","serviceOpt6"].forEach(id => { const el=$(id); if(el) el.textContent = t[id]; });
+
+    window.__toastI18N = { fillAll: t.toastFillAll, sent: t.toastSent, error: t.toastError };
+  }
+
+  const select = $("langSelect");
+  const saved = localStorage.getItem("site_lang");
+  const browser = (navigator.language || "en").slice(0,2);
+  const initial = saved || (["ro","ru","en"].includes(browser) ? browser : "en");
+  if(select){
+    select.value = initial;
+    select.addEventListener("change", () => {
+      localStorage.setItem("site_lang", select.value);
+      applyLang(select.value);
+    });
+  }
+  applyLang(initial);
+</script>
+
+<script>
+  // Override sendMail to use translated toast messages
+  (function(){
+    if(typeof window.sendMail !== "function") return;
+
+    window.sendMail = function(e) {
+      e.preventDefault();
+
+      const nameEl = document.getElementById("name");
+      const emailEl = document.getElementById("email");
+      const serviceEl = document.getElementById("service");
+      const messageEl = document.getElementById("message");
+
+      const name = (nameEl?.value || "").trim();
+      const email = (emailEl?.value || "").trim();
+      const service = (serviceEl?.value || "").trim();
+      const message = (messageEl?.value || "").trim();
+
+      const t = window.__toastI18N || { fillAll: "Please complete all fields.", sent: "Message sent successfully!", error: "Send failed. Please try again." };
+
+      if (!name || !email || !service || !message) {
+        if (typeof showToast === "function") showToast(t.fillAll);
+        else alert(t.fillAll);
+        return;
+      }
+
+      emailjs.send("service_ufmotip", "template_ddkw387", { name, email, service, message })
+        .then(() => {
+          if (typeof showToast === "function") showToast(t.sent);
+          else alert(t.sent);
+          document.getElementById("contactForm")?.reset();
+        })
+        .catch((err) => {
+          console.log("EmailJS error:", err);
+          if (typeof showToast === "function") showToast(t.error);
+          else alert(t.error);
+        });
+    };
+  })();
 </script>
 
 </body>
